@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>René Rychvalský | Brand & Marketing</title>
   <meta name="description" content="Pomáham firmám a ľuďom budovať silné značky. Marketing, stratégia a osobný brand." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -25,10 +28,15 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 16px;
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .hero-heading, .section-title, .timeline-title,
+    .about-headline, .timeline-company, .stat-num, .nav-logo-name {
+      font-family: 'Outfit', system-ui, sans-serif;
     }
 
     /* ── GRADIENT BG ── */
@@ -60,16 +68,9 @@
       gap: 2rem;
     }
     .nav-logo {
-      display: flex; flex-direction: column; gap: 0.05rem;
-      text-decoration: none;
-    }
-    .nav-logo-name {
-      font-weight: 900; font-size: 0.95rem; letter-spacing: 0.25em;
-      color: #fff; line-height: 1;
-    }
-    .nav-logo-url {
-      font-size: 0.65rem; letter-spacing: 0.12em;
-      color: var(--teal); font-weight: 500; line-height: 1;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-weight: 900; font-size: 1rem; letter-spacing: 0.18em;
+      color: #fff; text-decoration: none; white-space: nowrap;
     }
     .nav-links {
       display: flex; gap: 2.2rem; list-style: none;
@@ -391,7 +392,7 @@
       flex-wrap: wrap; gap: 1rem;
       font-size: 0.78rem; color: rgba(255,255,255,0.25);
     }
-    .footer-logo { font-weight: 900; letter-spacing: 0.22em; color: rgba(255,255,255,0.4); }
+    .footer-logo { font-family: 'Outfit', system-ui, sans-serif; font-weight: 900; letter-spacing: 0.22em; color: rgba(255,255,255,0.4); }
     .footer-socials { display: flex; gap: 1.5rem; }
     .footer-socials a {
       color: rgba(255,255,255,0.28); text-decoration: none;
@@ -430,10 +431,7 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-inner">
-      <a class="nav-logo" href="#">
-        <span class="nav-logo-name">RYCHVALSKY</span>
-        <span class="nav-logo-url">rychvalsky.sk</span>
-      </a>
+      <a class="nav-logo" href="#">RYCHVALSKY.SK</a>
       <ul class="nav-links">
         <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
@@ -690,7 +688,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <span class="footer-logo">RYCHVALSKY</span>
+      <span class="footer-logo">RYCHVALSKY.SK</span>
       <span>©Copyright René Rychvalský. All rights reserved.</span>
       <div class="footer-socials">
         <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">Instagram</a>
