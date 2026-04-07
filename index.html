@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>René Rychvalský | Brand & Marketing</title>
+  <meta name="description" content="Pomáham firmám a ľuďom budovať silné značky. Marketing, stratégia a osobný brand." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal: #00b3a6;
+      --teal-bright: #00d4c5;
+      --teal-dim: rgba(0,179,166,0.15);
+      --teal-border: rgba(0,179,166,0.22);
+      --bg: #000d0d;
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.55);
+      --card-bg: rgba(0,40,38,0.45);
+      --max: 1160px;
+      --radius: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── GRADIENT BG ── */
+    .site-wrap {
+      background:
+        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(0,179,166,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(0,100,95,0.15) 0%, transparent 55%),
+        linear-gradient(175deg, #000000 0%, #000e0d 25%, #001a18 55%, #003330 80%, #005c55 100%);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      transition: background 0.35s, backdrop-filter 0.35s;
+    }
+    nav.scrolled {
+      background: rgba(0,10,10,0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--teal-border);
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-weight: 900; font-size: 1rem; letter-spacing: 0.22em;
+      color: #fff; text-decoration: none; white-space: nowrap;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+      color: #001a18; font-weight: 700; font-size: 0.8rem;
+      letter-spacing: 0.06em; padding: 0.55rem 1.4rem;
+      border-radius: 100px; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 2rem; }
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    .label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1rem; display: block;
+    }
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900; letter-spacing: -0.025em; line-height: 1.05;
+    }
+    .section-title span { color: var(--teal); }
+    .teal-bar {
+      width: 52px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+      margin: 1.25rem 0;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh; padding-top: 100px;
+      display: flex; align-items: center;
+    }
+    .hero-content { max-width: 820px; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--teal);
+      border: 1px solid var(--teal-border); border-radius: 100px;
+      padding: 0.4rem 1rem; margin-bottom: 2rem;
+    }
+    .hero-tag::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--teal); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+    .hero-name {
+      font-size: clamp(4rem, 13vw, 10.5rem);
+      font-weight: 900; letter-spacing: -0.04em; line-height: 0.88;
+      margin-bottom: 1.5rem;
+    }
+    .hero-name .teal { color: var(--teal); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--muted); max-width: 500px; line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
+      padding: 0.85rem 2rem; border-radius: 100px;
+      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+    }
+    .btn-fill {
+      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
+      color: #001a18;
+    }
+    .btn-fill:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; color: var(--teal);
+      border: 1.5px solid var(--teal-border);
+    }
+    .btn-ghost:hover { background: var(--teal-dim); border-color: var(--teal); }
+
+    .stats {
+      margin-top: 5rem; padding-top: 2.5rem;
+      border-top: 1px solid var(--teal-border);
+      display: flex; gap: 3.5rem; flex-wrap: wrap;
+    }
+    .stat-num {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900; color: var(--teal); letter-spacing: -0.03em;
+    }
+    .stat-lbl {
+      font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted); margin-top: 0.2rem;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: rgba(0,15,14,0.4); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius);
+      background: linear-gradient(145deg, #001a18, #003330, #005c55);
+      border: 1px solid var(--teal-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem; color: rgba(0,179,166,0.2);
+      position: relative; overflow: hidden;
+    }
+    .about-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(0,179,166,0.06));
+    }
+    .about-text p {
+      color: var(--muted); line-height: 1.85; margin-bottom: 1rem;
+    }
+    .about-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* ── PORTFOLIO ── */
+    #portfolio {}
+    .portfolio-header { margin-bottom: 3.5rem; }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 1.5rem;
+    }
+    .tile {
+      background: var(--card-bg);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .tile:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,179,166,0.5);
+      box-shadow: 0 24px 60px rgba(0,179,166,0.13);
+    }
+    .tile-thumb {
+      width: 100%; aspect-ratio: 16/9; position: relative;
+      background: linear-gradient(135deg, #001210, #002825, #004540);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.8rem;
+    }
+    .tile-thumb::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45));
+    }
+    .tile-thumb span { position: relative; z-index: 1; }
+    .tile-body { padding: 1.5rem; }
+    .tile-tag {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem;
+    }
+    .tile-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .tile-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── SERVICES ── */
+    #services {
+      background: rgba(0,10,10,0.5);
+      border-top: 1px solid var(--teal-border);
+      border-bottom: 1px solid var(--teal-border);
+    }
+    .services-header { margin-bottom: 3.5rem; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.25rem;
+    }
+    .card {
+      background: rgba(0,20,18,0.6);
+      border: 1px solid var(--teal-border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      border-color: rgba(0,179,166,0.45);
+      background: rgba(0,40,36,0.5);
+      box-shadow: 0 12px 40px rgba(0,179,166,0.1);
+    }
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: var(--teal-dim); border: 1px solid var(--teal-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.2rem;
+    }
+    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .services-cta { margin-top: 3rem; text-align: center; }
+
+    /* ── CONTACT ── */
+    #contact {}
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+    .contact-text p { color: var(--muted); line-height: 1.75; max-width: 380px; margin-top: 1rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .clink {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      text-decoration: none; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .clink:hover { color: var(--teal); }
+    .clink-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: var(--teal-dim); border: 1px solid var(--teal-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; flex-shrink: 0; font-style: normal;
+    }
+    .clink span { font-size: 0.95rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--teal-border);
+      padding: 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.28);
+    }
+    .footer-logo { font-weight: 900; letter-spacing: 0.2em; color: rgba(255,255,255,0.45); }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; font-size: 0.78rem; letter-spacing: 0.06em; }
+    .footer-socials a:hover { color: var(--teal); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo { max-width: 340px; aspect-ratio: 1/1; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      section { padding: 5rem 1.25rem; }
+      .stats { gap: 2rem; }
+      .portfolio-grid, .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">RYCHVALSKY</a>
+      <ul class="nav-links">
+        <li><a href="#about">O mne</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#services">Služby</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Spolupráca</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">Brand · Marketing · Stratégia</div>
+        <h1 class="hero-name">
+          René<br>
+          <span class="teal">Rychvalský</span>
+        </h1>
+        <p class="hero-sub">
+          Pomáham firmám a ľuďom budovať silné značky, ktoré predávajú.
+          Marketing, ktorý má zmysel — od stratégie po exekúciu.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-fill" href="#services">Moje služby →</a>
+          <a class="btn btn-ghost" href="#portfolio">Portfólio</a>
+        </div>
+        <div class="stats">
+          <div>
+            <div class="stat-num">7+</div>
+            <div class="stat-lbl">Rokov skúseností</div>
+          </div>
+          <div>
+            <div class="stat-num">50+</div>
+            <div class="stat-lbl">Klientov</div>
+          </div>
+          <div>
+            <div class="stat-num">100+</div>
+            <div class="stat-lbl">Kampaní</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo">👤</div>
+        <div class="about-text">
+          <span class="label">O mne</span>
+          <h2 class="section-title">René <span>Rychvalský</span></h2>
+          <div class="teal-bar"></div>
+          <p>
+            Marketér, stratég a zakladateľ agentúry Hrom.marketing.
+            Špecializujem sa na budovanie značiek, performance marketing
+            a osobný branding.
+          </p>
+          <p>
+            Verím, že dobrý marketing je kombináciou stratégie, kreativity
+            a dát. Pracujem s firmami aj jednotlivcami, ktorí chcú rásť
+            a byť viditeľní.
+          </p>
+          <div class="about-links">
+            <a class="btn btn-fill" href="https://hrom.marketing" target="_blank" rel="noopener">Hrom.marketing ↗</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="portfolio-header">
+        <span class="label">Portfólio</span>
+        <h2 class="section-title">Vybrané <span>projekty</span></h2>
+      </div>
+      <div class="portfolio-grid">
+
+        <div class="tile">
+          <div class="tile-thumb"><span>⚡</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Brand Identity</div>
+            <div class="tile-title">Hrom.marketing</div>
+            <div class="tile-desc">Budovanie značky a vizuálnej identity pre marketingovú agentúru od nuly po plnú prevádzku.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-thumb"><span>📱</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Social Media</div>
+            <div class="tile-title">Sociálne siete – growth</div>
+            <div class="tile-desc">Organický rast profilov na Instagrame a LinkedIn s mesačným dosahom státisícov ľudí.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-thumb"><span>🎯</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Stratégia</div>
+            <div class="tile-title">Rebrand B2B spoločnosti</div>
+            <div class="tile-desc">Kompletný rebrand pre B2B klienta — nová identita, komunikačná stratégia a positioning.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-thumb"><span>✍️</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Content</div>
+            <div class="tile-title">Content systém pre e-shop</div>
+            <div class="tile-desc">Vybudovanie contentu a editoriálneho systému, ktorý generuje organickú návštevnosť.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-thumb"><span>📈</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Paid Ads</div>
+            <div class="tile-title">Performance kampane</div>
+            <div class="tile-desc">Meta & Google Ads s ROAS nad 5× pre e-commerce klientov v rôznych odvetviach.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tile-thumb"><span>🙋</span></div>
+          <div class="tile-body">
+            <div class="tile-tag">Osobný brand</div>
+            <div class="tile-title">Personal branding projekt</div>
+            <div class="tile-desc">Kompletný osobný brand od definovania hodnôt po konzistentnú prezentáciu online.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="label">Čo robím</span>
+        <h2 class="section-title">Moje <span>služby</span></h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Performance Marketing</h3>
+          <p>Meta Ads, Google Ads a ďalšie platené kampane s dôrazom na merateľné výsledky a návratnosť investície.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🎨</div>
+          <h3>Branding & Vizuálna identita</h3>
+          <p>Tvorba značky, logo, manuál, tone of voice — všetko čo robí zo spoločnosti nezabudnuteľnú identitu.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Social Media Management</h3>
+          <p>Správa sociálnych sietí, content plán, copywriting a komunita. Organický aj platený rast.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">✍️</div>
+          <h3>Content Marketing</h3>
+          <p>Tvorba obsahu, ktorý predáva — blogy, videá, grafiky, newslettre. Stratégia aj exekúcia.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3>Marketing Stratégia</h3>
+          <p>Kompletná marketingová stratégia — analýza trhu, positioning, cieľová skupina a plán rastu.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Konzultácie – Stratégia & Brand</h3>
+          <p>1:1 konzultácie pre firmy aj jednotlivcov. Pomôžem ti nastaviť stratégiu, pozicionovanie a osobný brand.</p>
+        </div>
+
+      </div>
+      <div class="services-cta">
+        <a class="btn btn-fill" href="#contact">Dohodnem konzultáciu →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-text">
+          <span class="label">Kontakt</span>
+          <h2 class="section-title">Porozprávajme <span>sa</span></h2>
+          <div class="teal-bar"></div>
+          <p>Máš projekt, nápad alebo otázku? Napíš mi — rád sa porozprávam o tom, ako môžem pomôcť.</p>
+        </div>
+        <div class="contact-links">
+          <a class="clink" href="mailto:rene@rychvalsky.sk">
+            <i class="clink-icon">✉️</i>
+            <span>rene@rychvalsky.sk</span>
+          </a>
+          <a class="clink" href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">
+            <i class="clink-icon">📸</i>
+            <span>@renerychvalsky</span>
+          </a>
+          <a class="clink" href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">
+            <i class="clink-icon">💼</i>
+            <span>LinkedIn — René Rychvalský</span>
+          </a>
+          <a class="clink" href="https://hrom.marketing" target="_blank" rel="noopener">
+            <i class="clink-icon">⚡</i>
+            <span>hrom.marketing</span>
+          </a>
+          <a class="clink" href="https://rychvalsky.sk" target="_blank" rel="noopener">
+            <i class="clink-icon">🔗</i>
+            <span>rychvalsky.sk</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">RYCHVALSKY</span>
+      <span>© 2025 René Rychvalský · All rights reserved</span>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://hrom.marketing" target="_blank" rel="noopener">Hrom</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+
+</body>
+</html>
