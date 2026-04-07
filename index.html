@@ -95,53 +95,47 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      padding: 120px 0 6rem;
+      padding: 0 2.5rem;
       display: flex; align-items: center;
       width: 100%;
     }
     .hero-inner {
       max-width: var(--max); margin: 0 auto; width: 100%;
-      padding: 0 2.5rem;
       display: grid;
-      grid-template-columns: 300px 1fr;
+      grid-template-columns: 340px 1fr;
       gap: 5rem;
       align-items: center;
     }
-    .hero-photo-wrap { position: relative; }
+    .hero-photo-wrap { position: relative; flex-shrink: 0; }
     .hero-photo {
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: 20px;
+      width: 340px;
+      height: 400px;
+      border-radius: 24px;
       overflow: hidden;
       background: #131c2a;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.07);
     }
     .hero-photo img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
     }
-    .hero-text {}
     .hero-heading {
-      font-size: clamp(2.6rem, 5vw, 4.4rem);
-      font-weight: 900;
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.25rem;
+      font-family: 'Outfit', system-ui, sans-serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
     }
     .hero-heading .muted {
-      color: rgba(255,255,255,0.38);
-      font-weight: 900;
+      color: rgba(255,255,255,0.35);
     }
     .hero-sub {
-      font-size: 0.95rem; color: var(--muted);
-      line-height: 1.75; max-width: 420px;
-      margin-bottom: 1.25rem;
-    }
-    .hero-bio {
-      font-size: 0.9rem; color: rgba(255,255,255,0.45);
-      line-height: 1.8; max-width: 480px;
-      margin-bottom: 2rem;
+      font-size: 1rem; color: rgba(255,255,255,0.55);
+      line-height: 1.7; max-width: 500px;
+      margin-bottom: 2.2rem;
     }
 
     /* ── ABOUT ── */
@@ -403,8 +397,8 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .hero-photo { max-width: 240px; aspect-ratio: 1/1; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 100px; }
+      .hero-photo { width: 260px; height: 300px; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .about-photo { max-width: 260px; aspect-ratio: 1/1; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -436,7 +430,7 @@
         <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#services">Služby</a></li>
-        <li><a href="#contact">Kontakt</a></li>
+        <li><a href="#cta">Kontakt</a></li>
       </ul>
       <div class="nav-socials">
         <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">IG</a>
@@ -466,13 +460,8 @@
         </h1>
         <p class="hero-sub">
           Prinášam energiu a drive do každého projektu.
-        </p>
-        <p class="hero-bio">
-          Začínal som ako freelance social media specialist a postupne som sa
-          prepracoval cez rôzne firmy a odvetvia až k vlastnej agentúre.
-          Pracujem s firmami, ktoré majú problém nie s komunikáciou, ale
-          s celým marketingom — zlá stratégia, nejasné ciele, weby čo
-          neprinášajú výsledky.
+          CMO v Sterio Kino, zakladateľ HROM Marketing a marketér,
+          ktorý opravuje marketing — nie len komunikáciu.
         </p>
         <a class="btn btn-fill" href="#about">Moja história ↓</a>
       </div>
@@ -646,42 +635,6 @@
       <h2>Máš problém s celým marketingom?</h2>
       <p>Nie len s komunikáciou. Napíš mi — a pozrieme sa na to spolu. Som dostupný pre projekty, spoluprácu aj jednorazové konzultácie.</p>
       <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Napíš mi ↓</a>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="contact-grid">
-        <div class="contact-text">
-          <span class="section-label">Kontakt</span>
-          <h2 class="section-title">Porozprávajme <span>sa</span></h2>
-          <div class="teal-bar"></div>
-          <p>Máš projekt, nápad alebo otázku? Napíš mi — rád sa porozprávam o tom, ako môžem pomôcť.</p>
-        </div>
-        <div class="contact-links">
-          <a class="clink" href="mailto:renerychvalsky1@gmail.com">
-            <i class="clink-icon">✉️</i>
-            <span>renerychvalsky1@gmail.com</span>
-          </a>
-          <a class="clink" href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">
-            <i class="clink-icon">📸</i>
-            <span>@renerychvalsky</span>
-          </a>
-          <a class="clink" href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">
-            <i class="clink-icon">💼</i>
-            <span>LinkedIn — René Rychvalský</span>
-          </a>
-          <a class="clink" href="https://hrom.marketing" target="_blank" rel="noopener">
-            <i class="clink-icon">⚡</i>
-            <span>hrom.marketing</span>
-          </a>
-          <a class="clink" href="https://rychvalsky.sk" target="_blank" rel="noopener">
-            <i class="clink-icon">🔗</i>
-            <span>rychvalsky.sk</span>
-          </a>
-        </div>
-      </div>
     </div>
   </section>
 
