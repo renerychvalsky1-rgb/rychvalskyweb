@@ -126,6 +126,65 @@
       line-height: 1.75; max-width: 420px;
       margin-bottom: 2rem;
     }
+
+    /* ── ABOUT ── */
+    #about { padding: 5rem 2.5rem; }
+    .stats-row {
+      display: flex; gap: 4rem; flex-wrap: wrap;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 4rem;
+    }
+    .stat-num { font-size: 2.8rem; font-weight: 900; color: var(--teal); letter-spacing: -0.04em; }
+    .stat-lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-top: 0.15rem; }
+
+    .about-grid {
+      display: grid; grid-template-columns: 280px 1fr;
+      gap: 5rem; align-items: start; margin-bottom: 5rem;
+    }
+    .about-photo {
+      width: 100%; aspect-ratio: 3/4; border-radius: 20px;
+      overflow: hidden; background: #131c2a;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+    .about-headline {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .about-headline span { color: var(--teal); }
+    .about-p { color: var(--muted); line-height: 1.8; margin-bottom: 0.9rem; font-size: 0.95rem; }
+
+    /* Timeline */
+    .timeline-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.025em;
+      margin-bottom: 0.6rem;
+    }
+    .timeline-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 3rem; max-width: 500px; }
+    .timeline { position: relative; padding-left: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 2rem; padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .timeline-date {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal);
+      background: rgba(0,200,184,0.08);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+      display: inline-block; height: fit-content;
+      white-space: nowrap;
+    }
+    .timeline-company { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.5rem; }
+    .timeline-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.45rem;
       font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
@@ -328,6 +387,8 @@
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-photo { max-width: 240px; aspect-ratio: 1/1; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about-photo { max-width: 260px; aspect-ratio: 1/1; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
@@ -335,12 +396,14 @@
     }
     @media (max-width: 680px) {
       #hero { padding: 90px 1.5rem 4rem; }
-      #portfolio, #services, #cta, #contact { padding: 4rem 1.5rem; }
+      #about, #portfolio, #services, #cta, #contact { padding: 4rem 1.5rem; }
       footer { padding: 1.5rem; }
       .port-row1 { grid-template-columns: 1fr; }
       .port-row2 { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .cta-box { padding: 3rem 1.5rem; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.75rem; }
+      .stats-row { gap: 2rem; }
     }
   </style>
 </head>
@@ -352,6 +415,7 @@
     <div class="nav-inner">
       <a class="nav-logo" href="#">RYCHVALSKY</a>
       <ul class="nav-links">
+        <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#services">Služby</a></li>
         <li><a href="#contact">Kontakt</a></li>
@@ -378,18 +442,132 @@
       <!-- Text -->
       <div class="hero-text">
         <h1 class="hero-heading">
-          Som marketér, CMO<br>
-          a zakladateľ HROM,<br>
-          <span class="muted">ktorý opravuje marketing.</span>
+          Som marketér,<br>
+          stratég a tvorca<br>
+          <span class="muted">brandov.</span>
         </h1>
         <p class="hero-sub">
-          Som René — CMO v Sterio Kino a zakladateľ HROM Marketing.
-          Pracujem s firmami, ktoré majú problém nie s komunikáciou,
-          ale s celým marketingom.
+          Prinášam energiu a drive do každého projektu.
+          CMO v Sterio Kino a zakladateľ HROM Marketing.
         </p>
-        <a class="btn btn-fill" href="#cta">Začnime spolupracovať ↓</a>
+        <a class="btn btn-fill" href="#about">O mne ↓</a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div>
+          <div class="stat-num">5+</div>
+          <div class="stat-lbl">Rokov skúseností</div>
+        </div>
+        <div>
+          <div class="stat-num">50+</div>
+          <div class="stat-lbl">Klientov</div>
+        </div>
+        <div>
+          <div class="stat-num">100+</div>
+          <div class="stat-lbl">Kampaní</div>
+        </div>
+        <div>
+          <div class="stat-num">3+</div>
+          <div class="stat-lbl">Aktívne firmy</div>
+        </div>
+      </div>
+
+      <!-- Photo + bio -->
+      <div class="about-grid">
+        <div class="about-photo">
+          <img src="rene.jpg" alt="René Rychvalský" />
+        </div>
+        <div>
+          <h2 class="about-headline">
+            Vášnivý marketér,<br>
+            ktorý mení <span>stratégiu</span><br>
+            na merateľné výsledky.
+          </h2>
+          <p class="about-p">
+            Som René Rychvalský — marketér, stratég a zakladateľ HROM Marketing.
+            Začínal som ako freelance social media specialist a postupne som sa prepracoval
+            cez rôzne firmy a odvetvia až k vlastnej agentúre.
+          </p>
+          <p class="about-p">
+            Dnes som CMO v Sterio Kino a founder v HROM. Pracujem s firmami,
+            ktoré majú problém nie s komunikáciou, ale s celým marketingom —
+            zlá stratégia, nejasné ciele, weby čo neprinášajú výsledky.
+          </p>
+          <p class="about-p">
+            Moje heslo: <strong style="color:#fff">Marketingový výkon ako hrom. ⚡</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <h2 class="timeline-title">Skúsenosti</h2>
+      <p class="timeline-sub">Overená história v marketingu, stratégii a rozvoji firiem.</p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2025 – dnes</span></div>
+          <div>
+            <div class="timeline-company">HROM Marketing</div>
+            <div class="timeline-role">Founder & CEO</div>
+            <div class="timeline-desc">Zakladateľ marketingovej agentúry zameranej na výkonnostný marketing, branding a stratégiu. Marketingový výkon ako hrom. ⚡</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2024 – dnes</span></div>
+          <div>
+            <div class="timeline-company">STERIO Kino</div>
+            <div class="timeline-role">Chief Sales & Marketing Officer (CMO)</div>
+            <div class="timeline-desc">Zodpovednosť za kompletnú marketingovú a predajnú stratégiu kinematografickej platformy. Branding, komunikácia a rast.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2023 – 2024</span></div>
+          <div>
+            <div class="timeline-company">gurupu</div>
+            <div class="timeline-role">Sales Development Manager</div>
+            <div class="timeline-desc">Rozvoj predajných procesov a akvizície klientov. Košice, Slovensko.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2022 – 2024</span></div>
+          <div>
+            <div class="timeline-company">ZOOMZOOM</div>
+            <div class="timeline-role">Marketing Project Manager</div>
+            <div class="timeline-desc">Riadenie marketingových projektov, koordinácia kampaní a klientská komunikácia. Košice, Slovensko.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2020 – 2022</span></div>
+          <div>
+            <div class="timeline-company">Freelance</div>
+            <div class="timeline-role">Social Media Specialist</div>
+            <div class="timeline-desc">Správa sociálnych sietí, content tvorba a organický rast pre rôznych klientov.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2021</span></div>
+          <div>
+            <div class="timeline-company">Slovak Global Network</div>
+            <div class="timeline-role">Digital Platform Administrator</div>
+            <div class="timeline-desc">Správa digitálnych platforiem a online komunikácie.</div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
