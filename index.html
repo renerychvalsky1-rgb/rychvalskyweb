@@ -9,16 +9,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --teal: #00b3a6;
-      --teal-bright: #00d4c5;
-      --teal-dim: rgba(0,179,166,0.15);
-      --teal-border: rgba(0,179,166,0.22);
-      --bg: #000d0d;
+      --teal: #00c8b8;
+      --teal-bright: #00e5d4;
+      --teal-dim: rgba(0,200,184,0.12);
+      --teal-border: rgba(0,200,184,0.2);
+      --bg: #06090f;
       --text: #ffffff;
-      --muted: rgba(255,255,255,0.55);
-      --card-bg: rgba(0,40,38,0.45);
-      --max: 1160px;
-      --radius: 18px;
+      --muted: rgba(255,255,255,0.5);
+      --max: 1200px;
+      --radius: 16px;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,276 +34,357 @@
     /* ── GRADIENT BG ── */
     .site-wrap {
       background:
-        radial-gradient(ellipse 80% 60% at 100% 0%, rgba(0,179,166,0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 0% 100%, rgba(0,100,95,0.15) 0%, transparent 55%),
-        linear-gradient(175deg, #000000 0%, #000e0d 25%, #001a18 55%, #003330 80%, #005c55 100%);
+        radial-gradient(ellipse 70% 55% at 75% 0%, rgba(0,180,165,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(0,100,90,0.1) 0%, transparent 50%),
+        linear-gradient(170deg, #06090f 0%, #07100e 30%, #081812 60%, #0a2420 85%, #0d3530 100%);
       min-height: 100vh;
     }
 
     /* ── NAV ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      transition: background 0.35s, backdrop-filter 0.35s;
+      transition: background 0.3s, backdrop-filter 0.3s;
     }
     nav.scrolled {
-      background: rgba(0,10,10,0.82);
-      backdrop-filter: blur(14px);
+      background: rgba(6,9,15,0.85);
+      backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--teal-border);
     }
     .nav-inner {
       max-width: var(--max); margin: 0 auto;
-      padding: 0 2rem;
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 66px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 2rem;
     }
     .nav-logo {
-      font-weight: 900; font-size: 1rem; letter-spacing: 0.22em;
-      color: #fff; text-decoration: none; white-space: nowrap;
+      font-weight: 900; font-size: 0.95rem; letter-spacing: 0.25em;
+      color: #fff; text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links {
+      display: flex; gap: 2.2rem; list-style: none;
+      justify-content: center;
+    }
     .nav-links a {
       color: var(--muted); text-decoration: none;
-      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+      font-size: 0.875rem; font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-cta {
-      background: linear-gradient(135deg, var(--teal), var(--teal-bright));
-      color: #001a18; font-weight: 700; font-size: 0.8rem;
-      letter-spacing: 0.06em; padding: 0.55rem 1.4rem;
-      border-radius: 100px; text-decoration: none;
-      transition: opacity 0.2s, transform 0.2s;
-      white-space: nowrap;
+    .nav-links a:hover { color: #fff; }
+    .nav-socials {
+      display: flex; gap: 1.2rem; align-items: center;
     }
-    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-
-    /* ── SECTION BASE ── */
-    section { padding: 7rem 2rem; }
-    .container { max-width: var(--max); margin: 0 auto; }
-
-    .label {
-      font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--teal); margin-bottom: 1rem; display: block;
+    .nav-socials a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      transition: color 0.2s;
     }
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900; letter-spacing: -0.025em; line-height: 1.05;
-    }
-    .section-title span { color: var(--teal); }
-    .teal-bar {
-      width: 52px; height: 3px; border-radius: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
-      margin: 1.25rem 0;
-    }
+    .nav-socials a:hover { color: var(--teal); }
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh; padding-top: 100px;
+      min-height: 100vh;
+      padding: 100px 2.5rem 6rem;
       display: flex; align-items: center;
     }
-    .hero-content { max-width: 820px; }
+    .hero-inner {
+      max-width: var(--max); margin: 0 auto; width: 100%;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .hero-photo-wrap {
+      position: relative;
+    }
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 1/1;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #111820;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center top;
+      display: block;
+    }
+    .hero-photo-badge {
+      position: absolute;
+      bottom: -1rem; right: -1rem;
+      background: var(--teal);
+      color: #06090f;
+      font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.5rem 1rem; border-radius: 100px;
+      box-shadow: 0 8px 24px rgba(0,200,184,0.35);
+    }
+    .hero-text {}
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
       text-transform: uppercase; color: var(--teal);
-      border: 1px solid var(--teal-border); border-radius: 100px;
-      padding: 0.4rem 1rem; margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .hero-tag::before {
       content: ''; width: 6px; height: 6px; border-radius: 50%;
       background: var(--teal); animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.75); }
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(0.7); }
     }
-    .hero-name {
-      font-size: clamp(4rem, 13vw, 10.5rem);
-      font-weight: 900; letter-spacing: -0.04em; line-height: 0.88;
+    .hero-heading {
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
       margin-bottom: 1.5rem;
     }
-    .hero-name .teal { color: var(--teal); }
+    .hero-heading em {
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+    }
     .hero-sub {
-      font-size: clamp(1rem, 1.8vw, 1.2rem);
-      color: var(--muted); max-width: 500px; line-height: 1.75;
+      font-size: 1rem; color: var(--muted);
+      line-height: 1.75; max-width: 460px;
       margin-bottom: 2.5rem;
     }
-    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
     .btn {
-      display: inline-flex; align-items: center; gap: 0.4rem;
+      display: inline-flex; align-items: center; gap: 0.45rem;
       font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
       padding: 0.85rem 2rem; border-radius: 100px;
-      text-decoration: none; transition: all 0.2s; cursor: pointer; border: none;
+      text-decoration: none; transition: all 0.22s; cursor: pointer; border: none;
     }
     .btn-fill {
       background: linear-gradient(135deg, var(--teal), var(--teal-bright));
-      color: #001a18;
+      color: #06090f;
     }
-    .btn-fill:hover { opacity: 0.88; transform: translateY(-2px); }
+    .btn-fill:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,200,184,0.3); }
     .btn-ghost {
-      background: transparent; color: var(--teal);
-      border: 1.5px solid var(--teal-border);
+      background: transparent; color: rgba(255,255,255,0.7);
+      border: 1.5px solid rgba(255,255,255,0.15);
     }
-    .btn-ghost:hover { background: var(--teal-dim); border-color: var(--teal); }
-
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
     .stats {
-      margin-top: 5rem; padding-top: 2.5rem;
-      border-top: 1px solid var(--teal-border);
-      display: flex; gap: 3.5rem; flex-wrap: wrap;
+      margin-top: 3.5rem; padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      display: flex; gap: 3rem; flex-wrap: wrap;
     }
     .stat-num {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 900; color: var(--teal); letter-spacing: -0.03em;
+      font-size: 2.2rem; font-weight: 900;
+      color: var(--teal); letter-spacing: -0.03em;
     }
     .stat-lbl {
-      font-size: 0.72rem; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--muted); margin-top: 0.2rem;
+      font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.14em; color: var(--muted); margin-top: 0.15rem;
     }
-
-    /* ── ABOUT ── */
-    #about { background: rgba(0,15,14,0.4); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1.2fr;
-      gap: 5rem; align-items: center;
-    }
-    .about-photo {
-      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius);
-      background: linear-gradient(145deg, #001a18, #003330, #005c55);
-      border: 1px solid var(--teal-border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem; color: rgba(0,179,166,0.2);
-      position: relative; overflow: hidden;
-    }
-    .about-photo::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(135deg, transparent 60%, rgba(0,179,166,0.06));
-    }
-    .about-text p {
-      color: var(--muted); line-height: 1.85; margin-bottom: 1rem;
-    }
-    .about-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
 
     /* ── PORTFOLIO ── */
-    #portfolio {}
-    .portfolio-header { margin-bottom: 3.5rem; }
-    .portfolio-grid {
+    #portfolio { padding: 6rem 2.5rem; }
+    .container { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.5rem; display: block;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: 3rem;
+    }
+    .section-title span { color: var(--teal); }
+
+    /* Portfolio grid matching template: 2 big + 3 small */
+    .port-row1 {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-bottom: 6px;
     }
-    .tile {
-      background: var(--card-bg);
-      border: 1px solid var(--teal-border);
-      border-radius: var(--radius); overflow: hidden;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    .port-row2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 6px;
     }
-    .tile:hover {
-      transform: translateY(-6px);
-      border-color: rgba(0,179,166,0.5);
-      box-shadow: 0 24px 60px rgba(0,179,166,0.13);
+    .port-tile {
+      position: relative; overflow: hidden;
+      border-radius: 12px;
+      cursor: default;
     }
-    .tile-thumb {
-      width: 100%; aspect-ratio: 16/9; position: relative;
-      background: linear-gradient(135deg, #001210, #002825, #004540);
+    .port-row1 .port-tile { aspect-ratio: 16/10; }
+    .port-row2 .port-tile { aspect-ratio: 4/3; }
+
+    .port-tile-bg {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0d1f1e, #0a2e2a, #0f3d38);
       display: flex; align-items: center; justify-content: center;
-      font-size: 2.8rem;
+      font-size: 4rem;
+      transition: transform 0.4s;
     }
-    .tile-thumb::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.45));
+    .port-tile:hover .port-tile-bg { transform: scale(1.04); }
+
+    .port-tile::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,0.65) 100%);
+      pointer-events: none;
     }
-    .tile-thumb span { position: relative; z-index: 1; }
-    .tile-body { padding: 1.5rem; }
-    .tile-tag {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem;
+
+    .port-badge {
+      position: absolute; top: 14px; right: 14px; z-index: 2;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase; color: rgba(255,255,255,0.85);
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(6px);
+      padding: 0.3rem 0.75rem; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.12);
     }
-    .tile-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .tile-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    .port-info {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 1.25rem 1.25rem 1.1rem;
+    }
+    .port-title {
+      font-size: 1rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.3rem; line-height: 1.2;
+    }
+    .port-desc {
+      font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5;
+    }
+    .port-row2 .port-desc { display: none; }
 
     /* ── SERVICES ── */
     #services {
-      background: rgba(0,10,10,0.5);
-      border-top: 1px solid var(--teal-border);
-      border-bottom: 1px solid var(--teal-border);
+      padding: 6rem 2.5rem;
+      background: rgba(0,0,0,0.3);
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
-    .services-header { margin-bottom: 3.5rem; }
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
-    .card {
-      background: rgba(0,20,18,0.6);
-      border: 1px solid var(--teal-border);
-      border-radius: var(--radius); padding: 2rem;
-      transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+    .scard {
+      background: rgba(10,20,18,0.9);
+      padding: 2rem;
+      transition: background 0.25s;
     }
-    .card:hover {
-      border-color: rgba(0,179,166,0.45);
-      background: rgba(0,40,36,0.5);
-      box-shadow: 0 12px 40px rgba(0,179,166,0.1);
+    .scard:hover { background: rgba(0,40,36,0.95); }
+    .scard-num {
+      font-size: 0.7rem; font-weight: 800; color: var(--teal);
+      letter-spacing: 0.12em; margin-bottom: 1.25rem; display: block;
     }
-    .card-icon {
-      width: 46px; height: 46px; border-radius: 12px;
-      background: var(--teal-dim); border: 1px solid var(--teal-border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; margin-bottom: 1.2rem;
+    .scard h3 {
+      font-size: 1rem; font-weight: 700; margin-bottom: 0.65rem;
+      line-height: 1.3;
     }
-    .card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.6rem; }
-    .card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
-    .services-cta { margin-top: 3rem; text-align: center; }
+    .scard p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── CTA BANNER ── */
+    #cta { padding: 4rem 2.5rem; }
+    .cta-box {
+      max-width: var(--max); margin: 0 auto;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-bright) 100%);
+      border-radius: 24px;
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900; color: #06090f;
+      letter-spacing: -0.025em; line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .cta-box p {
+      color: rgba(6,9,15,0.65); font-size: 1rem;
+      max-width: 500px; margin: 0 auto 2rem; line-height: 1.65;
+    }
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #06090f; color: #fff;
+      font-weight: 700; font-size: 0.9rem;
+      padding: 0.9rem 2.2rem; border-radius: 100px;
+      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
 
     /* ── CONTACT ── */
-    #contact {}
+    #contact { padding: 6rem 2.5rem; }
     .contact-grid {
       display: grid; grid-template-columns: 1fr 1fr;
       gap: 5rem; align-items: start;
     }
-    .contact-text p { color: var(--muted); line-height: 1.75; max-width: 380px; margin-top: 1rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 0; }
+    .contact-text .section-title { margin-bottom: 0; }
+    .teal-bar {
+      width: 50px; height: 3px; border-radius: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
+      margin: 1.2rem 0;
+    }
+    .contact-text > p { color: var(--muted); line-height: 1.75; }
+    .contact-links { display: flex; flex-direction: column; }
     .clink {
       display: flex; align-items: center; gap: 1rem;
       padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-decoration: none; color: var(--muted);
-      transition: color 0.2s;
+      text-decoration: none; color: var(--muted); transition: color 0.2s;
     }
     .clink:hover { color: var(--teal); }
     .clink-icon {
       width: 38px; height: 38px; border-radius: 10px;
-      background: var(--teal-dim); border: 1px solid var(--teal-border);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       display: flex; align-items: center; justify-content: center;
       font-size: 1rem; flex-shrink: 0; font-style: normal;
     }
-    .clink span { font-size: 0.95rem; }
 
     /* ── FOOTER ── */
     footer {
-      border-top: 1px solid var(--teal-border);
-      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 2rem 2.5rem;
     }
     .footer-inner {
       max-width: var(--max); margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
       flex-wrap: wrap; gap: 1rem;
-      font-size: 0.78rem; color: rgba(255,255,255,0.28);
+      font-size: 0.78rem; color: rgba(255,255,255,0.25);
     }
-    .footer-logo { font-weight: 900; letter-spacing: 0.2em; color: rgba(255,255,255,0.45); }
+    .footer-logo { font-weight: 900; letter-spacing: 0.22em; color: rgba(255,255,255,0.4); }
     .footer-socials { display: flex; gap: 1.5rem; }
-    .footer-socials a { color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; font-size: 0.78rem; letter-spacing: 0.06em; }
+    .footer-socials a {
+      color: rgba(255,255,255,0.28); text-decoration: none;
+      font-size: 0.75rem; letter-spacing: 0.07em;
+      transition: color 0.2s;
+    }
     .footer-socials a:hover { color: var(--teal); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-photo { max-width: 340px; aspect-ratio: 1/1; }
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-photo { max-width: 300px; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
+      .nav-inner { grid-template-columns: 1fr auto; }
     }
-    @media (max-width: 600px) {
-      section { padding: 5rem 1.25rem; }
+    @media (max-width: 680px) {
+      #hero { padding: 90px 1.5rem 5rem; }
+      #portfolio, #services, #cta, #contact { padding: 4rem 1.5rem; }
+      footer { padding: 1.5rem; }
+      .port-row1 { grid-template-columns: 1fr; }
+      .port-row2 { grid-template-columns: 1fr 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
       .stats { gap: 2rem; }
-      .portfolio-grid, .services-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 3rem 1.5rem; }
     }
   </style>
 </head>
@@ -316,30 +396,45 @@
     <div class="nav-inner">
       <a class="nav-logo" href="#">RYCHVALSKY</a>
       <ul class="nav-links">
-        <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#services">Služby</a></li>
         <li><a href="#contact">Kontakt</a></li>
       </ul>
-      <a class="nav-cta" href="#contact">Spolupráca</a>
+      <div class="nav-socials">
+        <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">IG</a>
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LI</a>
+        <a href="https://hrom.marketing" target="_blank" rel="noopener">HM</a>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-tag">Brand · Marketing · Stratégia</div>
-        <h1 class="hero-name">
-          René<br>
-          <span class="teal">Rychvalský</span>
+    <div class="hero-inner">
+
+      <!-- Photo -->
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <img src="rene.jpg" alt="René Rychvalský" />
+        </div>
+        <span class="hero-photo-badge">Brand & Marketing</span>
+      </div>
+
+      <!-- Text -->
+      <div class="hero-text">
+        <div class="hero-tag">Dostupný pre spoluprácu</div>
+        <h1 class="hero-heading">
+          Som marketér,<br>
+          stratég a <em>tvorca</em><br>
+          silných značiek.
         </h1>
         <p class="hero-sub">
-          Pomáham firmám a ľuďom budovať silné značky, ktoré predávajú.
-          Marketing, ktorý má zmysel — od stratégie po exekúciu.
+          Ahoj, som René Rychvalský — zakladateľ Hrom.marketing.
+          Pomáham firmám a ľuďom budovať značky, ktoré predávajú
+          a nechávajú stopu.
         </p>
         <div class="btn-row">
-          <a class="btn btn-fill" href="#services">Moje služby →</a>
+          <a class="btn btn-fill" href="#cta">Začnime spolupracovať ↓</a>
           <a class="btn btn-ghost" href="#portfolio">Portfólio</a>
         </div>
         <div class="stats">
@@ -357,153 +452,117 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-photo">👤</div>
-        <div class="about-text">
-          <span class="label">O mne</span>
-          <h2 class="section-title">René <span>Rychvalský</span></h2>
-          <div class="teal-bar"></div>
-          <p>
-            Marketér, stratég a zakladateľ agentúry Hrom.marketing.
-            Špecializujem sa na budovanie značiek, performance marketing
-            a osobný branding.
-          </p>
-          <p>
-            Verím, že dobrý marketing je kombináciou stratégie, kreativity
-            a dát. Pracujem s firmami aj jednotlivcami, ktorí chcú rásť
-            a byť viditeľní.
-          </p>
-          <div class="about-links">
-            <a class="btn btn-fill" href="https://hrom.marketing" target="_blank" rel="noopener">Hrom.marketing ↗</a>
-            <a class="btn btn-ghost" href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <div class="container">
-      <div class="portfolio-header">
-        <span class="label">Portfólio</span>
-        <h2 class="section-title">Vybrané <span>projekty</span></h2>
+      <span class="section-label">Niektoré projekty</span>
+      <h2 class="section-title">Vybrané <span>práce</span></h2>
+
+      <!-- Row 1: 2 tiles -->
+      <div class="port-row1">
+        <div class="port-tile">
+          <div class="port-tile-bg">⚡</div>
+          <span class="port-badge">Branding</span>
+          <div class="port-info">
+            <div class="port-title">Hrom.marketing</div>
+            <div class="port-desc">Značka a vizuálna identita marketingovej agentúry od nuly po plnú prevádzku.</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg">📈</div>
+          <span class="port-badge">Paid Ads</span>
+          <div class="port-info">
+            <div class="port-title">Performance kampane</div>
+            <div class="port-desc">Meta & Google Ads s ROAS nad 5× pre e-commerce klientov v rôznych odvetviach.</div>
+          </div>
+        </div>
       </div>
-      <div class="portfolio-grid">
 
-        <div class="tile">
-          <div class="tile-thumb"><span>⚡</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Brand Identity</div>
-            <div class="tile-title">Hrom.marketing</div>
-            <div class="tile-desc">Budovanie značky a vizuálnej identity pre marketingovú agentúru od nuly po plnú prevádzku.</div>
+      <!-- Row 2: 3 tiles -->
+      <div class="port-row2">
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">📱</div>
+          <span class="port-badge">Social Media</span>
+          <div class="port-info">
+            <div class="port-title">Instagram & LinkedIn growth</div>
           </div>
         </div>
-
-        <div class="tile">
-          <div class="tile-thumb"><span>📱</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Social Media</div>
-            <div class="tile-title">Sociálne siete – growth</div>
-            <div class="tile-desc">Organický rast profilov na Instagrame a LinkedIn s mesačným dosahom státisícov ľudí.</div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🎯</div>
+          <span class="port-badge">Stratégia</span>
+          <div class="port-info">
+            <div class="port-title">Rebrand B2B spoločnosti</div>
           </div>
         </div>
-
-        <div class="tile">
-          <div class="tile-thumb"><span>🎯</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Stratégia</div>
-            <div class="tile-title">Rebrand B2B spoločnosti</div>
-            <div class="tile-desc">Kompletný rebrand pre B2B klienta — nová identita, komunikačná stratégia a positioning.</div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🙋</div>
+          <span class="port-badge">Osobný brand</span>
+          <div class="port-info">
+            <div class="port-title">Personal branding projekt</div>
           </div>
         </div>
-
-        <div class="tile">
-          <div class="tile-thumb"><span>✍️</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Content</div>
-            <div class="tile-title">Content systém pre e-shop</div>
-            <div class="tile-desc">Vybudovanie contentu a editoriálneho systému, ktorý generuje organickú návštevnosť.</div>
-          </div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-thumb"><span>📈</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Paid Ads</div>
-            <div class="tile-title">Performance kampane</div>
-            <div class="tile-desc">Meta & Google Ads s ROAS nad 5× pre e-commerce klientov v rôznych odvetviach.</div>
-          </div>
-        </div>
-
-        <div class="tile">
-          <div class="tile-thumb"><span>🙋</span></div>
-          <div class="tile-body">
-            <div class="tile-tag">Osobný brand</div>
-            <div class="tile-title">Personal branding projekt</div>
-            <div class="tile-desc">Kompletný osobný brand od definovania hodnôt po konzistentnú prezentáciu online.</div>
-          </div>
-        </div>
-
       </div>
+
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <div class="services-header">
-        <span class="label">Čo robím</span>
-        <h2 class="section-title">Moje <span>služby</span></h2>
-      </div>
+      <span class="section-label">Čo robím</span>
+      <h2 class="section-title">Moje <span>služby</span></h2>
       <div class="services-grid">
 
-        <div class="card">
-          <div class="card-icon">⚡</div>
+        <div class="scard">
+          <span class="scard-num">01</span>
           <h3>Performance Marketing</h3>
           <p>Meta Ads, Google Ads a ďalšie platené kampane s dôrazom na merateľné výsledky a návratnosť investície.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🎨</div>
+        <div class="scard">
+          <span class="scard-num">02</span>
           <h3>Branding & Vizuálna identita</h3>
           <p>Tvorba značky, logo, manuál, tone of voice — všetko čo robí zo spoločnosti nezabudnuteľnú identitu.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">📱</div>
+        <div class="scard">
+          <span class="scard-num">03</span>
           <h3>Social Media Management</h3>
           <p>Správa sociálnych sietí, content plán, copywriting a komunita. Organický aj platený rast.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">✍️</div>
+        <div class="scard">
+          <span class="scard-num">04</span>
           <h3>Content Marketing</h3>
           <p>Tvorba obsahu, ktorý predáva — blogy, videá, grafiky, newslettre. Stratégia aj exekúcia.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">📊</div>
+        <div class="scard">
+          <span class="scard-num">05</span>
           <h3>Marketing Stratégia</h3>
           <p>Kompletná marketingová stratégia — analýza trhu, positioning, cieľová skupina a plán rastu.</p>
         </div>
 
-        <div class="card">
-          <div class="card-icon">🤝</div>
+        <div class="scard">
+          <span class="scard-num">06</span>
           <h3>Konzultácie – Stratégia & Brand</h3>
           <p>1:1 konzultácie pre firmy aj jednotlivcov. Pomôžem ti nastaviť stratégiu, pozicionovanie a osobný brand.</p>
         </div>
 
       </div>
-      <div class="services-cta">
-        <a class="btn btn-fill" href="#contact">Dohodnem konzultáciu →</a>
-      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section id="cta">
+    <div class="cta-box">
+      <h2>Pripravený rozbehnúť tvoj projekt?</h2>
+      <p>Ozvem sa a urobíme z toho realitu. Som dostupný pre spoluprácu na projektoch aj na plný alebo čiastočný úväzok.</p>
+      <a class="btn-dark" href="mailto:rene@rychvalsky.sk">Napíš mi ↓</a>
     </div>
   </section>
 
@@ -512,7 +571,7 @@
     <div class="container">
       <div class="contact-grid">
         <div class="contact-text">
-          <span class="label">Kontakt</span>
+          <span class="section-label">Kontakt</span>
           <h2 class="section-title">Porozprávajme <span>sa</span></h2>
           <div class="teal-bar"></div>
           <p>Máš projekt, nápad alebo otázku? Napíš mi — rád sa porozprávam o tom, ako môžem pomôcť.</p>
@@ -547,11 +606,11 @@
   <footer>
     <div class="footer-inner">
       <span class="footer-logo">RYCHVALSKY</span>
-      <span>© 2025 René Rychvalský · All rights reserved</span>
+      <span>©Copyright René Rychvalský. All rights reserved.</span>
       <div class="footer-socials">
         <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">Instagram</a>
         <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://hrom.marketing" target="_blank" rel="noopener">Hrom</a>
+        <a href="https://hrom.marketing" target="_blank" rel="noopener">Hrom.marketing</a>
       </div>
     </div>
   </footer>
@@ -559,11 +618,10 @@
 </div>
 
 <script>
-  // Nav scroll effect
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
-  });
+  }, { passive: true });
 </script>
 
 </body>
