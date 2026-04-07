@@ -85,77 +85,47 @@
 
     /* ── HERO ── */
     #hero {
-      min-height: 100vh;
-      padding: 100px 2.5rem 6rem;
+      padding: 120px 2.5rem 5rem;
       display: flex; align-items: center;
     }
     .hero-inner {
       max-width: var(--max); margin: 0 auto; width: 100%;
       display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 5rem;
+      grid-template-columns: 280px 1fr;
+      gap: 4.5rem;
       align-items: center;
     }
-    .hero-photo-wrap {
-      position: relative;
-    }
+    .hero-photo-wrap { position: relative; }
     .hero-photo {
       width: 100%;
-      aspect-ratio: 1/1;
-      border-radius: 24px;
+      aspect-ratio: 4/5;
+      border-radius: 20px;
       overflow: hidden;
-      background: #111820;
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+      background: #131c2a;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.55);
     }
     .hero-photo img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center top;
       display: block;
     }
-    .hero-photo-badge {
-      position: absolute;
-      bottom: -1rem; right: -1rem;
-      background: var(--teal);
-      color: #06090f;
-      font-size: 0.7rem; font-weight: 800;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 0.5rem 1rem; border-radius: 100px;
-      box-shadow: 0 8px 24px rgba(0,200,184,0.35);
-    }
     .hero-text {}
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--teal);
-      margin-bottom: 1.5rem;
-    }
-    .hero-tag::before {
-      content: ''; width: 6px; height: 6px; border-radius: 50%;
-      background: var(--teal); animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { opacity:1; transform:scale(1); }
-      50% { opacity:0.4; transform:scale(0.7); }
-    }
     .hero-heading {
-      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-size: clamp(2.6rem, 5vw, 4.4rem);
       font-weight: 900;
-      line-height: 1.08;
+      line-height: 1.06;
       letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
-    .hero-heading em {
-      font-style: italic;
-      color: rgba(255,255,255,0.45);
-      font-weight: 300;
+    .hero-heading .muted {
+      color: rgba(255,255,255,0.38);
+      font-weight: 900;
     }
     .hero-sub {
-      font-size: 1rem; color: var(--muted);
-      line-height: 1.75; max-width: 460px;
-      margin-bottom: 2.5rem;
+      font-size: 0.95rem; color: var(--muted);
+      line-height: 1.75; max-width: 420px;
+      margin-bottom: 2rem;
     }
-    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.45rem;
       font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
@@ -172,19 +142,6 @@
       border: 1.5px solid rgba(255,255,255,0.15);
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
-    .stats {
-      margin-top: 3.5rem; padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex; gap: 3rem; flex-wrap: wrap;
-    }
-    .stat-num {
-      font-size: 2.2rem; font-weight: 900;
-      color: var(--teal); letter-spacing: -0.03em;
-    }
-    .stat-lbl {
-      font-size: 0.7rem; text-transform: uppercase;
-      letter-spacing: 0.14em; color: var(--muted); margin-top: 0.15rem;
-    }
 
     /* ── PORTFOLIO ── */
     #portfolio { padding: 6rem 2.5rem; }
@@ -369,21 +326,20 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-photo { max-width: 300px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-photo { max-width: 240px; aspect-ratio: 1/1; }
       .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
       .nav-inner { grid-template-columns: 1fr auto; }
     }
     @media (max-width: 680px) {
-      #hero { padding: 90px 1.5rem 5rem; }
+      #hero { padding: 90px 1.5rem 4rem; }
       #portfolio, #services, #cta, #contact { padding: 4rem 1.5rem; }
       footer { padding: 1.5rem; }
       .port-row1 { grid-template-columns: 1fr; }
       .port-row2 { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .stats { gap: 2rem; }
       .cta-box { padding: 3rem 1.5rem; }
     }
   </style>
@@ -417,40 +373,21 @@
         <div class="hero-photo">
           <img src="rene.jpg" alt="René Rychvalský" />
         </div>
-        <span class="hero-photo-badge">Brand & Marketing</span>
       </div>
 
       <!-- Text -->
       <div class="hero-text">
-        <div class="hero-tag">CMO Sterio Kino · Zakladateľ HROM</div>
         <h1 class="hero-heading">
-          Opravujem<br>
-          a prednášam<br>
-          <em>o marketingu.</em>
+          Som marketér, CMO<br>
+          a zakladateľ HROM,<br>
+          <span class="muted">ktorý opravuje marketing.</span>
         </h1>
         <p class="hero-sub">
           Som René — CMO v Sterio Kino a zakladateľ HROM Marketing.
           Pracujem s firmami, ktoré majú problém nie s komunikáciou,
           ale s celým marketingom.
         </p>
-        <div class="btn-row">
-          <a class="btn btn-fill" href="#cta">Začnime spolupracovať ↓</a>
-          <a class="btn btn-ghost" href="#portfolio">Portfólio</a>
-        </div>
-        <div class="stats">
-          <div>
-            <div class="stat-num">7+</div>
-            <div class="stat-lbl">Rokov skúseností</div>
-          </div>
-          <div>
-            <div class="stat-num">50+</div>
-            <div class="stat-lbl">Klientov</div>
-          </div>
-          <div>
-            <div class="stat-num">100+</div>
-            <div class="stat-lbl">Kampaní</div>
-          </div>
-        </div>
+        <a class="btn btn-fill" href="#cta">Začnime spolupracovať ↓</a>
       </div>
 
     </div>
