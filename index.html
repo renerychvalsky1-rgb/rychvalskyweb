@@ -60,8 +60,16 @@
       gap: 2rem;
     }
     .nav-logo {
+      display: flex; flex-direction: column; gap: 0.05rem;
+      text-decoration: none;
+    }
+    .nav-logo-name {
       font-weight: 900; font-size: 0.95rem; letter-spacing: 0.25em;
-      color: #fff; text-decoration: none;
+      color: #fff; line-height: 1;
+    }
+    .nav-logo-url {
+      font-size: 0.65rem; letter-spacing: 0.12em;
+      color: var(--teal); font-weight: 500; line-height: 1;
     }
     .nav-links {
       display: flex; gap: 2.2rem; list-style: none;
@@ -86,14 +94,16 @@
     /* ── HERO ── */
     #hero {
       min-height: 100vh;
-      padding: 120px 2.5rem 6rem;
+      padding: 120px 0 6rem;
       display: flex; align-items: center;
+      width: 100%;
     }
     .hero-inner {
       max-width: var(--max); margin: 0 auto; width: 100%;
+      padding: 0 2.5rem;
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 4.5rem;
+      grid-template-columns: 300px 1fr;
+      gap: 5rem;
       align-items: center;
     }
     .hero-photo-wrap { position: relative; }
@@ -420,7 +430,10 @@
   <!-- NAV -->
   <nav id="nav">
     <div class="nav-inner">
-      <a class="nav-logo" href="#">RYCHVALSKY</a>
+      <a class="nav-logo" href="#">
+        <span class="nav-logo-name">RYCHVALSKY</span>
+        <span class="nav-logo-url">rychvalsky.sk</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
@@ -472,26 +485,6 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-
-      <!-- Stats -->
-      <div class="stats-row">
-        <div>
-          <div class="stat-num">5+</div>
-          <div class="stat-lbl">Rokov skúseností</div>
-        </div>
-        <div>
-          <div class="stat-num">50+</div>
-          <div class="stat-lbl">Klientov</div>
-        </div>
-        <div>
-          <div class="stat-num">100+</div>
-          <div class="stat-lbl">Kampaní</div>
-        </div>
-        <div>
-          <div class="stat-num">3+</div>
-          <div class="stat-lbl">Aktívne firmy</div>
-        </div>
-      </div>
 
       <!-- Timeline -->
       <h2 class="timeline-title">Skúsenosti</h2>
