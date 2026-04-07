@@ -124,6 +124,11 @@
     .hero-sub {
       font-size: 0.95rem; color: var(--muted);
       line-height: 1.75; max-width: 420px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-bio {
+      font-size: 0.9rem; color: rgba(255,255,255,0.45);
+      line-height: 1.8; max-width: 480px;
       margin-bottom: 2rem;
     }
 
@@ -163,28 +168,29 @@
       margin-bottom: 0.6rem;
     }
     .timeline-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 3rem; max-width: 500px; }
-    .timeline { position: relative; padding-left: 0; }
-    .timeline-item {
-      display: grid; grid-template-columns: 160px 1fr;
-      gap: 2rem; padding-bottom: 2.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      margin-bottom: 2.5rem;
-      position: relative;
+    .timeline {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
     }
-    .timeline-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .timeline-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
     .timeline-date {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--teal);
       background: rgba(0,200,184,0.08);
       border: 1px solid var(--teal-border);
       border-radius: 100px;
-      padding: 0.35rem 0.85rem;
-      display: inline-block; height: fit-content;
-      white-space: nowrap;
+      padding: 0.3rem 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
     }
-    .timeline-company { font-size: 1.15rem; font-weight: 800; margin-bottom: 0.25rem; }
-    .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.5rem; }
-    .timeline-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .timeline-company { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
+    .timeline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
     .btn {
       display: inline-flex; align-items: center; gap: 0.45rem;
       font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
@@ -402,7 +408,7 @@
       .port-row2 { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .cta-box { padding: 3rem 1.5rem; }
-      .timeline-item { grid-template-columns: 1fr; gap: 0.75rem; }
+      .timeline { grid-template-columns: 1fr; }
       .stats-row { gap: 2rem; }
     }
   </style>
@@ -450,7 +456,15 @@
           Prinášam energiu a drive do každého projektu.
           CMO v Sterio Kino a zakladateľ HROM Marketing.
         </p>
-        <a class="btn btn-fill" href="#about">O mne ↓</a>
+        <p class="hero-bio">
+          Som René Rychvalský — marketér, stratég a zakladateľ HROM Marketing.
+          Začínal som ako freelance social media specialist a postupne som sa prepracoval
+          cez rôzne firmy a odvetvia až k vlastnej agentúre.<br><br>
+          Dnes som CMO v Sterio Kino a founder v HROM. Pracujem s firmami,
+          ktoré majú problém nie s komunikáciou, ale s celým marketingom —
+          zlá stratégia, nejasné ciele, weby čo neprinášajú výsledky.
+        </p>
+        <a class="btn btn-fill" href="#about">Moja história ↓</a>
       </div>
 
     </div>
@@ -477,33 +491,6 @@
         <div>
           <div class="stat-num">3+</div>
           <div class="stat-lbl">Aktívne firmy</div>
-        </div>
-      </div>
-
-      <!-- Photo + bio -->
-      <div class="about-grid">
-        <div class="about-photo">
-          <img src="rene.jpg" alt="René Rychvalský" />
-        </div>
-        <div>
-          <h2 class="about-headline">
-            Vášnivý marketér,<br>
-            ktorý mení <span>stratégiu</span><br>
-            na merateľné výsledky.
-          </h2>
-          <p class="about-p">
-            Som René Rychvalský — marketér, stratég a zakladateľ HROM Marketing.
-            Začínal som ako freelance social media specialist a postupne som sa prepracoval
-            cez rôzne firmy a odvetvia až k vlastnej agentúre.
-          </p>
-          <p class="about-p">
-            Dnes som CMO v Sterio Kino a founder v HROM. Pracujem s firmami,
-            ktoré majú problém nie s komunikáciou, ale s celým marketingom —
-            zlá stratégia, nejasné ciele, weby čo neprinášajú výsledky.
-          </p>
-          <p class="about-p">
-            Moje heslo: <strong style="color:#fff">Marketingový výkon ako hrom. ⚡</strong>
-          </p>
         </div>
       </div>
 
@@ -555,15 +542,6 @@
             <div class="timeline-company">Freelance</div>
             <div class="timeline-role">Social Media Specialist</div>
             <div class="timeline-desc">Správa sociálnych sietí, content tvorba a organický rast pre rôznych klientov.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div><span class="timeline-date">2021</span></div>
-          <div>
-            <div class="timeline-company">Slovak Global Network</div>
-            <div class="timeline-role">Digital Platform Administrator</div>
-            <div class="timeline-desc">Správa digitálnych platforiem a online komunikácie.</div>
           </div>
         </div>
 
@@ -677,7 +655,7 @@
     <div class="cta-box">
       <h2>Máš problém s celým marketingom?</h2>
       <p>Nie len s komunikáciou. Napíš mi — a pozrieme sa na to spolu. Som dostupný pre projekty, spoluprácu aj jednorazové konzultácie.</p>
-      <a class="btn-dark" href="mailto:rene@rychvalsky.sk">Napíš mi ↓</a>
+      <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Napíš mi ↓</a>
     </div>
   </section>
 
@@ -692,9 +670,9 @@
           <p>Máš projekt, nápad alebo otázku? Napíš mi — rád sa porozprávam o tom, ako môžem pomôcť.</p>
         </div>
         <div class="contact-links">
-          <a class="clink" href="mailto:rene@rychvalsky.sk">
+          <a class="clink" href="mailto:renerychvalsky1@gmail.com">
             <i class="clink-icon">✉️</i>
-            <span>rene@rychvalsky.sk</span>
+            <span>renerychvalsky1@gmail.com</span>
           </a>
           <a class="clink" href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">
             <i class="clink-icon">📸</i>
