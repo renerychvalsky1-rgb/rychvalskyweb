@@ -81,15 +81,23 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: #fff; }
-    .nav-socials {
-      display: flex; gap: 1.2rem; align-items: center;
+    .nav-actions {
+      display: flex; gap: 1rem; align-items: center;
     }
-    .nav-socials a {
+    .nav-link-plain {
       color: var(--muted); text-decoration: none;
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      font-size: 0.85rem; font-weight: 500;
       transition: color 0.2s;
     }
-    .nav-socials a:hover { color: var(--teal); }
+    .nav-link-plain:hover { color: #fff; }
+    .nav-btn-teal {
+      color: var(--teal); text-decoration: none;
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em;
+      padding: 0.5rem 1.2rem; border-radius: 100px;
+      border: 1.5px solid var(--teal-border);
+      transition: all 0.2s;
+    }
+    .nav-btn-teal:hover { border-color: var(--teal); background: rgba(0,200,184,0.08); }
 
     /* ── HERO ── */
     #hero {
@@ -395,16 +403,10 @@
   <nav id="nav">
     <div class="nav-inner">
       <a class="nav-logo" href="#">RYCHVALSKY.SK</a>
-      <ul class="nav-links">
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#services">Služby</a></li>
-        <li><a href="#about">Skúsenosti</a></li>
-        <li><a href="#cta">Kontakt</a></li>
-      </ul>
-      <div class="nav-socials">
-        <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">IG</a>
-        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://hrom.marketing" target="_blank" rel="noopener">HM</a>
+      <div></div>
+      <div class="nav-actions">
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener" class="nav-link-plain">LinkedIn</a>
+        <a href="mailto:renerychvalsky1@gmail.com" class="nav-btn-teal">Napísať email</a>
       </div>
     </div>
   </nav>
@@ -632,10 +634,9 @@
     <div class="footer-inner">
       <span class="footer-logo">RYCHVALSKY.SK</span>
       <span>©Copyright René Rychvalský. All rights reserved.</span>
-      <div class="footer-socials">
-        <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://hrom.marketing" target="_blank" rel="noopener">Hrom.marketing</a>
+      <div class="nav-actions">
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener" class="nav-link-plain">LinkedIn</a>
+        <a href="mailto:renerychvalsky1@gmail.com" class="nav-btn-teal">Napísať email</a>
       </div>
     </div>
   </footer>
