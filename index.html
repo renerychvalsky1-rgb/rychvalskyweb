@@ -34,8 +34,7 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, .hero-heading, .section-title, .timeline-title,
-    .about-headline, .timeline-company, .stat-num, .nav-logo-name {
+    h1, h2, h3, h4 {
       font-family: 'Roboto', system-ui, sans-serif;
     }
 
@@ -96,6 +95,7 @@
     #hero {
       min-height: 100vh;
       padding: 0 2.5rem;
+      padding-top: 66px;
       display: flex; align-items: center;
       width: 100%;
     }
@@ -122,7 +122,6 @@
       display: block;
     }
     .hero-heading {
-      font-family: 'Roboto', system-ui, sans-serif;
       font-size: clamp(3rem, 6vw, 5.5rem);
       font-weight: 800;
       line-height: 1.02;
@@ -138,65 +137,7 @@
       margin-bottom: 2.2rem;
     }
 
-    /* ── ABOUT ── */
-    #about { padding: 5rem 2.5rem; }
-    .stats-row {
-      display: flex; gap: 4rem; flex-wrap: wrap;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 4rem;
-    }
-    .stat-num { font-size: 2.8rem; font-weight: 900; color: var(--teal); letter-spacing: -0.04em; }
-    .stat-lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-top: 0.15rem; }
-
-    .about-grid {
-      display: grid; grid-template-columns: 280px 1fr;
-      gap: 5rem; align-items: start; margin-bottom: 5rem;
-    }
-    .about-photo {
-      width: 100%; aspect-ratio: 3/4; border-radius: 20px;
-      overflow: hidden; background: #131c2a;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-    }
-    .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-    .about-headline {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 900; letter-spacing: -0.025em; line-height: 1.1;
-      margin-bottom: 1.25rem;
-    }
-    .about-headline span { color: var(--teal); }
-    .about-p { color: var(--muted); line-height: 1.8; margin-bottom: 0.9rem; font-size: 0.95rem; }
-
-    /* Timeline */
-    .timeline-title {
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 900; letter-spacing: -0.025em;
-      margin-bottom: 0.6rem;
-    }
-    .timeline-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 3rem; max-width: 500px; }
-    .timeline {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .timeline-item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 16px;
-      padding: 1.75rem;
-    }
-    .timeline-date {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal);
-      background: rgba(0,200,184,0.08);
-      border: 1px solid var(--teal-border);
-      border-radius: 100px;
-      padding: 0.3rem 0.8rem;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-    .timeline-company { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.25rem; }
-    .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
-    .timeline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+    /* ── BUTTONS ── */
     .btn {
       display: inline-flex; align-items: center; gap: 0.45rem;
       font-weight: 700; font-size: 0.88rem; letter-spacing: 0.04em;
@@ -208,14 +149,8 @@
       color: #06090f;
     }
     .btn-fill:hover { opacity: 0.88; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,200,184,0.3); }
-    .btn-ghost {
-      background: transparent; color: rgba(255,255,255,0.7);
-      border: 1.5px solid rgba(255,255,255,0.15);
-    }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
 
-    /* ── PORTFOLIO ── */
-    #portfolio { padding: 6rem 2.5rem; }
+    /* ── SHARED ── */
     .container { max-width: var(--max); margin: 0 auto; }
     .section-label {
       font-size: 0.7rem; font-weight: 700;
@@ -229,7 +164,32 @@
     }
     .section-title span { color: var(--teal); }
 
-    /* Portfolio grid matching template: 2 big + 3 small */
+    /* ── PORTFOLIO ── */
+    #portfolio { padding: 6rem 2.5rem; }
+
+    /* Brand section headers */
+    .port-brand {
+      display: flex; align-items: center; gap: 1rem;
+      margin: 3rem 0 1.25rem;
+    }
+    .port-brand:first-of-type { margin-top: 0; }
+    .port-brand-badge {
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em;
+      text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px;
+    }
+    .port-brand-badge--hrom {
+      background: rgba(0,200,184,0.15);
+      border: 1px solid rgba(0,200,184,0.35);
+      color: var(--teal-bright);
+    }
+    .port-brand-badge--sterio {
+      background: rgba(255,185,0,0.15);
+      border: 1px solid rgba(255,185,0,0.35);
+      color: #ffc830;
+    }
+    .port-brand-name { color: var(--muted); font-size: 0.85rem; }
+
+    /* Portfolio grids */
     .port-row1 {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -238,8 +198,9 @@
     }
     .port-row2 {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 6px;
+      margin-bottom: 6px;
     }
     .port-tile {
       position: relative; overflow: hidden;
@@ -267,12 +228,20 @@
 
     .port-badge {
       position: absolute; top: 14px; right: 14px; z-index: 2;
-      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em;
-      text-transform: uppercase; color: rgba(255,255,255,0.85);
-      background: rgba(0,0,0,0.45);
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.14em;
+      text-transform: uppercase;
       backdrop-filter: blur(6px);
       padding: 0.3rem 0.75rem; border-radius: 100px;
-      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .port-badge--hrom {
+      color: var(--teal-bright);
+      background: rgba(0,200,184,0.2);
+      border: 1px solid rgba(0,200,184,0.4);
+    }
+    .port-badge--sterio {
+      color: #ffc830;
+      background: rgba(255,185,0,0.2);
+      border: 1px solid rgba(255,185,0,0.4);
     }
 
     .port-info {
@@ -286,7 +255,10 @@
     .port-desc {
       font-size: 0.8rem; color: rgba(255,255,255,0.6); line-height: 1.5;
     }
-    .port-row2 .port-desc { display: none; }
+    .port-tags {
+      font-size: 0.72rem; color: rgba(255,255,255,0.42);
+      margin-top: 0.25rem; line-height: 1.4;
+    }
 
     /* ── SERVICES ── */
     #services {
@@ -319,6 +291,38 @@
     }
     .scard p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
+    /* ── ABOUT / SKÚSENOSTI ── */
+    #about { padding: 5rem 2.5rem; }
+    .timeline-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900; letter-spacing: -0.025em;
+      margin-bottom: 0.6rem;
+    }
+    .timeline-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 3rem; max-width: 500px; }
+    .timeline {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .timeline-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 16px;
+      padding: 1.75rem;
+    }
+    .timeline-date {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal);
+      background: rgba(0,200,184,0.08);
+      border: 1px solid var(--teal-border);
+      border-radius: 100px;
+      padding: 0.3rem 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .timeline-company { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.25rem; }
+    .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
+    .timeline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
+
     /* ── CTA BANNER ── */
     #cta { padding: 4rem 2.5rem; }
     .cta-box {
@@ -347,34 +351,6 @@
     }
     .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
 
-    /* ── CONTACT ── */
-    #contact { padding: 6rem 2.5rem; }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: start;
-    }
-    .contact-text .section-title { margin-bottom: 0; }
-    .teal-bar {
-      width: 50px; height: 3px; border-radius: 2px;
-      background: linear-gradient(90deg, var(--teal), var(--teal-bright));
-      margin: 1.2rem 0;
-    }
-    .contact-text > p { color: var(--muted); line-height: 1.75; }
-    .contact-links { display: flex; flex-direction: column; }
-    .clink {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.06);
-      text-decoration: none; color: var(--muted); transition: color 0.2s;
-    }
-    .clink:hover { color: var(--teal); }
-    .clink-icon {
-      width: 38px; height: 38px; border-radius: 10px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem; flex-shrink: 0; font-style: normal;
-    }
-
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -399,23 +375,20 @@
     @media (max-width: 960px) {
       .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 100px; }
       .hero-photo { width: 260px; height: 300px; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-photo { max-width: 260px; aspect-ratio: 1/1; }
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .timeline { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .nav-links { display: none; }
       .nav-inner { grid-template-columns: 1fr auto; }
+      .port-row2 { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 680px) {
       #hero { padding: 90px 1.5rem 4rem; }
-      #about, #portfolio, #services, #cta, #contact { padding: 4rem 1.5rem; }
+      #about, #portfolio, #services, #cta { padding: 4rem 1.5rem; }
       footer { padding: 1.5rem; }
       .port-row1 { grid-template-columns: 1fr; }
       .port-row2 { grid-template-columns: 1fr 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .cta-box { padding: 3rem 1.5rem; }
-      .timeline { grid-template-columns: 1fr; }
-      .stats-row { gap: 2rem; }
     }
   </style>
 </head>
@@ -427,9 +400,9 @@
     <div class="nav-inner">
       <a class="nav-logo" href="#">RYCHVALSKY.SK</a>
       <ul class="nav-links">
-        <li><a href="#about">O mne</a></li>
         <li><a href="#portfolio">Portfólio</a></li>
         <li><a href="#services">Služby</a></li>
+        <li><a href="#about">Skúsenosti</a></li>
         <li><a href="#cta">Kontakt</a></li>
       </ul>
       <div class="nav-socials">
@@ -444,36 +417,205 @@
   <section id="hero">
     <div class="hero-inner">
 
-      <!-- Photo -->
       <div class="hero-photo-wrap">
         <div class="hero-photo">
           <img src="rene.jpg" alt="René Rychvalský" />
         </div>
       </div>
 
-      <!-- Text -->
       <div class="hero-text">
         <h1 class="hero-heading">
-          Som marketér,<br>
-          stratég a tvorca<br>
-          <span class="muted">brandov.</span>
+          Som marketér, stratég<br>
+          <span class="muted">a tvorca brandov.</span>
         </h1>
         <p class="hero-sub">
           Prinášam energiu a drive do každého projektu.
           CMO v Sterio Kino, zakladateľ HROM Marketing a marketér,
           ktorý opravuje marketing — nie len komunikáciu.
         </p>
-        <a class="btn btn-fill" href="#about">Moja história ↓</a>
+        <a class="btn btn-fill" href="mailto:renerychvalsky1@gmail.com">Kontaktuj ma</a>
       </div>
 
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <span class="section-label">Niektoré projekty</span>
+      <h2 class="section-title">Vybrané <span>práce</span></h2>
+
+      <!-- HROM section -->
+      <div class="port-brand">
+        <span class="port-brand-badge port-brand-badge--hrom">HROM</span>
+        <span class="port-brand-name">Projekty agentúry HROM Marketing</span>
+      </div>
+
+      <div class="port-row1">
+        <div class="port-tile">
+          <div class="port-tile-bg">💧</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Marlus Group</div>
+            <div class="port-desc">Cena za lead znížená z 50 € na 5–6 €. Meta & Google Ads pre predaj výdajníkov vody a tepelných čerpadiel.</div>
+            <div class="port-tags">PPC · Stratégia · Meta & Google Ads · Priemysel</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg">🏥</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Ultrazvukové pracovisko</div>
+            <div class="port-desc">Redizajn webu + custom objednávací formulár prepojený so softvérom ambulancie. Online objednávky prekonali telefonáty.</div>
+            <div class="port-tags">PPC · Web & Automatizácia · Zdravotníctvo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-row2">
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🏔️</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Liptov Klasik</div>
+            <div class="port-tags">PPC · Eventy</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🩺</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Mám krčové žily</div>
+            <div class="port-tags">PPC · Web · Zdravotníctvo</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🍓</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Strauberi</div>
+            <div class="port-tags">Branding · IT Firma</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:2.5rem">→</div>
+          <span class="port-badge port-badge--hrom">HROM</span>
+          <div class="port-info">
+            <div class="port-title">Ďalšie projekty</div>
+            <div class="port-tags">hrom.marketing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STERIO Kino section -->
+      <div class="port-brand">
+        <span class="port-brand-badge port-brand-badge--sterio">STERIO Kino</span>
+        <span class="port-brand-name">Projekty pre STERIO Kino</span>
+      </div>
+
+      <div class="port-row1">
+        <div class="port-tile">
+          <div class="port-tile-bg">🤖</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">AI Influencer</div>
+            <div class="port-desc">René osobne vytvoril prvého slovenského AI influencera pre STERIO Kino — od konceptu, cez vizuál, až po obsah na sociálnych sieťach.</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg">🎭</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">Maskot STERKO</div>
+            <div class="port-desc">Tvorba originálneho maskota kinematografickej platformy — od návrhu po implementáciu do komunikácie.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="port-row2">
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🔥</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">Viral rebranding launch</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">🎬</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">LOBO kampaň</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">❤️</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">STERIO POMÁHA</div>
+          </div>
+        </div>
+        <div class="port-tile">
+          <div class="port-tile-bg" style="font-size:3rem">✨</div>
+          <span class="port-badge port-badge--sterio">STERIO Kino</span>
+          <div class="port-info">
+            <div class="port-title">Golden VIP sála</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <span class="section-label">Čo robím</span>
+      <h2 class="section-title">Moje <span>služby</span></h2>
+      <div class="services-grid">
+
+        <div class="scard">
+          <span class="scard-num">01</span>
+          <h3>✏️ Branding</h3>
+          <p>Tvorba značky, vizuálna identita a tone of voice pre firmy, ktoré chcú byť zapamätateľné a iné.</p>
+        </div>
+
+        <div class="scard">
+          <span class="scard-num">02</span>
+          <h3>📐 Tvorím stratégie od základov</h3>
+          <p>Kompletná marketingová stratégia — analýza, positioning, cieľové publikum a plán rastu od nuly.</p>
+        </div>
+
+        <div class="scard">
+          <span class="scard-num">03</span>
+          <h3>🔧 Opravujem marketing</h3>
+          <p>Nie len komunikáciu. Zlá stratégia, nejasné ciele, weby čo neprinášajú výsledky — to sú problémy, ktoré riešim.</p>
+        </div>
+
+        <div class="scard">
+          <span class="scard-num">04</span>
+          <h3>🤝 Prepájam seniorov v marketingu</h3>
+          <p>Spájam skúsených marketérov a odborníkov, zdieľame know-how a vytvárame príležitosti pre spoluprácu.</p>
+        </div>
+
+        <div class="scard">
+          <span class="scard-num">05</span>
+          <h3>🎤 Prednášam o marketingu</h3>
+          <p>Prednášky a workshopy pre firmy, eventy a školy. Reálne príklady, žiadna teória navyše.</p>
+        </div>
+
+        <div class="scard">
+          <span class="scard-num">06</span>
+          <h3>💬 Konzultácie – Stratégia & Brand</h3>
+          <p>1:1 konzultácie pre firmy aj jednotlivcov. Nastavíme stratégiu, pozicionovanie a osobný brand.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKÚSENOSTI (moved after services) -->
   <section id="about">
     <div class="container">
-
-      <!-- Timeline -->
       <h2 class="timeline-title">Skúsenosti</h2>
       <p class="timeline-sub">Overená história v marketingu, stratégii a rozvoji firiem.</p>
 
@@ -500,7 +642,6 @@
         <div class="timeline-item">
           <div><span class="timeline-date">2023 – 2024</span></div>
           <div>
-            <div class="timeline-company">gurupu</div>
             <div class="timeline-role">Sales Development Manager</div>
             <div class="timeline-desc">Rozvoj predajných procesov a akvizície klientov. Košice, Slovensko.</div>
           </div>
@@ -509,9 +650,17 @@
         <div class="timeline-item">
           <div><span class="timeline-date">2022 – 2024</span></div>
           <div>
-            <div class="timeline-company">ZOOMZOOM</div>
             <div class="timeline-role">Marketing Project Manager</div>
             <div class="timeline-desc">Riadenie marketingových projektov, koordinácia kampaní a klientská komunikácia. Košice, Slovensko.</div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div><span class="timeline-date">2021 – 2022</span></div>
+          <div>
+            <div class="timeline-company">Slovak Global Network</div>
+            <div class="timeline-role">Brand & Marketing Specialist</div>
+            <div class="timeline-desc">Rozvoj siete slovenských podnikateľov a spolupráca na marketingových a brandingových aktivitách.</div>
           </div>
         </div>
 
@@ -528,113 +677,12 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <span class="section-label">Niektoré projekty</span>
-      <h2 class="section-title">Vybrané <span>práce</span></h2>
-
-      <!-- Row 1: 2 tiles -->
-      <div class="port-row1">
-        <div class="port-tile">
-          <div class="port-tile-bg">💧</div>
-          <span class="port-badge">Performance</span>
-          <div class="port-info">
-            <div class="port-title">Marlus Group</div>
-            <div class="port-desc">Cena za lead znížená z 50 € na 5–6 €. Meta Ads + Google Ads pre predaj výdajníkov vody a tepelných čerpadiel. Trojciferný počet obchodovateľných leadov mesačne.</div>
-          </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg">🏥</div>
-          <span class="port-badge">Web & Automatizácia</span>
-          <div class="port-info">
-            <div class="port-title">Marketing v zdravotníctve</div>
-            <div class="port-desc">Kompletný redizajn webu, custom objednávací formulár prepojený so softvérom ambulancie. Po 2 mesiacoch viac online objednávok ako telefonátov.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2: 3 tiles -->
-      <div class="port-row2">
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🎪</div>
-          <span class="port-badge">Event Marketing</span>
-          <div class="port-info">
-            <div class="port-title">Liptov Klasik</div>
-          </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">⚡</div>
-          <span class="port-badge">Branding</span>
-          <div class="port-info">
-            <div class="port-title">HROM Marketing</div>
-          </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🎬</div>
-          <span class="port-badge">CMO</span>
-          <div class="port-info">
-            <div class="port-title">Sterio Kino</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <span class="section-label">Čo robím</span>
-      <h2 class="section-title">Moje <span>služby</span></h2>
-      <div class="services-grid">
-
-        <div class="scard">
-          <span class="scard-num">01</span>
-          <h3>🎤 Prednášam o marketingu</h3>
-          <p>Prednášky a workshopy pre firmy, eventy a školy. Reálne príklady, žiadna teória navyše.</p>
-        </div>
-
-        <div class="scard">
-          <span class="scard-num">02</span>
-          <h3>✏️ Tvorím stratégie od základov</h3>
-          <p>Kompletná marketingová stratégia — analýza, positioning, cieľové publikum a plán rastu od nuly.</p>
-        </div>
-
-        <div class="scard">
-          <span class="scard-num">03</span>
-          <h3>🔧 Opravujem marketing</h3>
-          <p>Nie len komunikáciu. Zlá stratégia, nejasné ciele, weby čo neprinášajú výsledky — to sú problémy, ktoré riešim.</p>
-        </div>
-
-        <div class="scard">
-          <span class="scard-num">04</span>
-          <h3>📊 Merateľné výsledky</h3>
-          <p>Nie pekné reporty. Meta Ads, Google Ads — kampane nastavené na reálny výkon a návratnosť investície.</p>
-        </div>
-
-        <div class="scard">
-          <span class="scard-num">05</span>
-          <h3>⚡ Branding & Komunikácia</h3>
-          <p>Tvorba značky, tone of voice a komunikačná stratégia pre firmy, ktoré chcú novú energiu do svojho projektu.</p>
-        </div>
-
-        <div class="scard">
-          <span class="scard-num">06</span>
-          <h3>🤝 Konzultácie – Stratégia & Brand</h3>
-          <p>1:1 konzultácie pre firmy aj jednotlivcov. Nastavíme stratégiu, pozicionovanie a osobný brand.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- CTA BANNER -->
   <section id="cta">
     <div class="cta-box">
-      <h2>Máš problém s celým marketingom?</h2>
-      <p>Nie len s komunikáciou. Napíš mi — a pozrieme sa na to spolu. Som dostupný pre projekty, spoluprácu aj jednorazové konzultácie.</p>
-      <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Napíš mi ↓</a>
+      <h2>Nefunguje ti marketing?</h2>
+      <p>Napíš mi jeden email. Pozrieme sa na to spolu a vymyslíme čo treba zmeniť.</p>
+      <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Napíš mi →</a>
     </div>
   </section>
 
