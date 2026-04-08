@@ -187,26 +187,23 @@
     }
     .port-brand-name { color: var(--muted); font-size: 0.85rem; }
 
-    /* Portfolio grids */
-    .port-row1 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-bottom: 6px;
+    /* Portfolio carousel */
+    .carousel-wrap {
+      overflow: hidden;
+      border-radius: 12px;
     }
-    .port-row2 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .carousel-track {
+      display: flex;
       gap: 6px;
-      margin-bottom: 6px;
+      will-change: transform;
     }
     .port-tile {
       position: relative; overflow: hidden;
       border-radius: 12px;
       cursor: default;
+      flex-shrink: 0;
+      aspect-ratio: 4/3;
     }
-    .port-row1 .port-tile { aspect-ratio: 16/10; }
-    .port-row2 .port-tile { aspect-ratio: 4/3; }
 
     .port-tile-bg {
       width: 100%; height: 100%;
@@ -443,56 +440,62 @@
       <span class="section-label">Niektoré projekty</span>
       <h2 class="section-title">Vybrané <span>práce</span></h2>
 
-      <div class="port-row1">
-        <div class="port-tile">
-          <div class="port-tile-bg">💧</div>
-          <span class="port-badge port-badge--hrom">HROM</span>
-          <div class="port-info">
-            <div class="port-title">Marlus Group</div>
-            <div class="port-desc">Cena za lead znížená z 50 € na 5–6 €. Meta & Google Ads pre predaj výdajníkov vody a tepelných čerpadiel.</div>
-            <div class="port-tags">PPC · Stratégia · Meta & Google Ads · Priemysel</div>
-          </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg">🤖</div>
-          <span class="port-badge port-badge--sterio">STERIO Kino</span>
-          <div class="port-info">
-            <div class="port-title">AI Influencer</div>
-            <div class="port-desc">René osobne vytvoril prvého slovenského AI influencera pre STERIO Kino — od konceptu, cez vizuál, až po obsah na sociálnych sieťach.</div>
-          </div>
-        </div>
-      </div>
+      <div class="carousel-wrap">
+        <div class="carousel-track" id="portTrack">
 
-      <div class="port-row2">
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🏥</div>
-          <span class="port-badge port-badge--hrom">HROM</span>
-          <div class="port-info">
-            <div class="port-title">Ultrazvukové pracovisko</div>
-            <div class="port-tags">PPC · Web & Automatizácia · Zdravotníctvo</div>
+          <div class="port-tile">
+            <div class="port-tile-bg">💧</div>
+            <span class="port-badge port-badge--hrom">HROM</span>
+            <div class="port-info">
+              <div class="port-title">Marlus Group</div>
+              <div class="port-desc">Cena za lead znížená z 50 € na 5–6 €. Meta & Google Ads pre predaj výdajníkov vody a tepelných čerpadiel.</div>
+              <div class="port-tags">PPC · Stratégia · Meta & Google Ads · Priemysel</div>
+            </div>
           </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🎭</div>
-          <span class="port-badge port-badge--sterio">STERIO Kino</span>
-          <div class="port-info">
-            <div class="port-title">Maskot STERKO</div>
+
+          <div class="port-tile">
+            <div class="port-tile-bg">🤖</div>
+            <span class="port-badge port-badge--sterio">STERIO Kino</span>
+            <div class="port-info">
+              <div class="port-title">AI Influencer</div>
+              <div class="port-desc">René osobne vytvoril prvého slovenského AI influencera pre STERIO Kino — od konceptu, cez vizuál, až po obsah na sociálnych sieťach.</div>
+            </div>
           </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🏔️</div>
-          <span class="port-badge port-badge--hrom">HROM</span>
-          <div class="port-info">
-            <div class="port-title">Liptov Klasik</div>
-            <div class="port-tags">PPC · Eventy</div>
+
+          <div class="port-tile">
+            <div class="port-tile-bg" style="font-size:3rem">🏥</div>
+            <span class="port-badge port-badge--hrom">HROM</span>
+            <div class="port-info">
+              <div class="port-title">Ultrazvukové pracovisko</div>
+              <div class="port-tags">PPC · Web & Automatizácia · Zdravotníctvo</div>
+            </div>
           </div>
-        </div>
-        <div class="port-tile">
-          <div class="port-tile-bg" style="font-size:3rem">🔥</div>
-          <span class="port-badge port-badge--sterio">STERIO Kino</span>
-          <div class="port-info">
-            <div class="port-title">Viral rebranding launch</div>
+
+          <div class="port-tile">
+            <div class="port-tile-bg" style="font-size:3rem">🎭</div>
+            <span class="port-badge port-badge--sterio">STERIO Kino</span>
+            <div class="port-info">
+              <div class="port-title">Maskot STERKO</div>
+            </div>
           </div>
+
+          <div class="port-tile">
+            <div class="port-tile-bg" style="font-size:3rem">🏔️</div>
+            <span class="port-badge port-badge--hrom">HROM</span>
+            <div class="port-info">
+              <div class="port-title">Liptov Klasik</div>
+              <div class="port-tags">PPC · Eventy</div>
+            </div>
+          </div>
+
+          <div class="port-tile">
+            <div class="port-tile-bg" style="font-size:3rem">🔥</div>
+            <span class="port-badge port-badge--sterio">STERIO Kino</span>
+            <div class="port-info">
+              <div class="port-title">Viral rebranding launch</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -635,10 +638,65 @@
 </div>
 
 <script>
+  // Nav scroll
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 50);
   }, { passive: true });
+
+  // Portfolio carousel
+  (function () {
+    const wrap = document.querySelector('.carousel-wrap');
+    const track = document.getElementById('portTrack');
+    if (!wrap || !track) return;
+
+    const VISIBLE = 3;
+    const GAP = 6;
+    const origTiles = Array.from(track.querySelectorAll('.port-tile'));
+    const total = origTiles.length;
+
+    // Clone first VISIBLE tiles for seamless loop
+    origTiles.slice(0, VISIBLE).forEach(t => track.appendChild(t.cloneNode(true)));
+
+    let current = 0;
+    let animating = false;
+
+    function tileWidth() {
+      return (wrap.offsetWidth - GAP * (VISIBLE - 1)) / VISIBLE;
+    }
+
+    function applyWidths() {
+      const w = tileWidth();
+      Array.from(track.querySelectorAll('.port-tile')).forEach(t => {
+        t.style.width = w + 'px';
+      });
+    }
+
+    applyWidths();
+    window.addEventListener('resize', applyWidths, { passive: true });
+
+    function advance() {
+      if (animating) return;
+      animating = true;
+      current++;
+      const step = tileWidth() + GAP;
+      track.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+      track.style.transform = `translateX(-${current * step}px)`;
+
+      if (current >= total) {
+        setTimeout(() => {
+          track.style.transition = 'none';
+          current = 0;
+          track.style.transform = 'translateX(0)';
+          animating = false;
+        }, 560);
+      } else {
+        setTimeout(() => { animating = false; }, 560);
+      }
+    }
+
+    setInterval(advance, 2000);
+  })();
 </script>
 
 </body>
