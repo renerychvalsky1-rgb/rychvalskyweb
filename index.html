@@ -339,12 +339,13 @@
     }
     .btn-dark {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #06090f; color: #fff;
+      background: transparent; color: #06090f;
       font-weight: 700; font-size: 0.9rem;
       padding: 0.9rem 2.2rem; border-radius: 100px;
-      text-decoration: none; transition: opacity 0.2s, transform 0.2s;
+      border: 1.5px solid #06090f;
+      text-decoration: none; transition: all 0.2s;
     }
-    .btn-dark:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-dark:hover { background: rgba(6,9,15,0.08); transform: translateY(-2px); }
 
     /* ── FOOTER ── */
     footer {
@@ -402,7 +403,7 @@
       </ul>
       <div class="nav-socials">
         <a href="https://www.instagram.com/renerychvalsky" target="_blank" rel="noopener">IG</a>
-        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LI</a>
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://hrom.marketing" target="_blank" rel="noopener">HM</a>
       </div>
     </div>
@@ -618,7 +619,7 @@
     <div class="cta-box">
       <h2>Problémy s marketingom alebo brandom?</h2>
       <p>Napíš mi email a pozrieme sa na to spolu pri káve.</p>
-      <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Napíš mi →</a>
+      <a class="btn-dark" href="mailto:renerychvalsky1@gmail.com">Poslať email</a>
     </div>
   </section>
 
