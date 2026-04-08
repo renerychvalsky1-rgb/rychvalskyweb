@@ -219,6 +219,12 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 4rem;
       transition: transform 0.4s;
+      overflow: hidden;
+    }
+    .port-tile-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      display: block;
     }
     .port-tile:hover .port-tile-bg { transform: scale(1.04); }
 
@@ -417,7 +423,7 @@
 
       <div class="hero-photo-wrap">
         <div class="hero-photo">
-          <img src="rene.jpg" alt="René Rychvalský" />
+          <img src="rene.png" alt="René Rychvalský" />
         </div>
       </div>
 
@@ -457,7 +463,7 @@
           </div>
 
           <div class="port-tile">
-            <div class="port-tile-bg">🤖</div>
+            <div class="port-tile-bg"><img src="portfolio-ai-influencer.jpg.webp" alt="AI Influencer" /></div>
             <span class="port-badge port-badge--sterio">STERIO Kino</span>
             <div class="port-info">
               <div class="port-title">AI Influencer</div>
@@ -476,7 +482,7 @@
           </div>
 
           <div class="port-tile">
-            <div class="port-tile-bg">🎭</div>
+            <div class="port-tile-bg"><img src="portfolio-sterko.jpg.webp" alt="Maskot STERKO" /></div>
             <span class="port-badge port-badge--sterio">STERIO Kino</span>
             <div class="port-info">
               <div class="port-title">Maskot STERKO</div>
@@ -495,7 +501,7 @@
           </div>
 
           <div class="port-tile">
-            <div class="port-tile-bg">🔥</div>
+            <div class="port-tile-bg"><img src="portfolio-rebranding.jpg.webp" alt="Virálny rebranding" /></div>
             <span class="port-badge port-badge--sterio">STERIO Kino</span>
             <div class="port-info">
               <div class="port-title">Virálny rebranding</div>
