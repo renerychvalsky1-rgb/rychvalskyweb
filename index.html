@@ -210,7 +210,6 @@
       border-radius: 12px;
       cursor: default;
       flex-shrink: 0;
-      aspect-ratio: 1/1;
     }
 
     .port-tile-bg {
@@ -454,10 +453,10 @@
       }
       .footer-logo { font-size: 0.8rem; }
 
-      .port-info { padding: 1rem; }
-      .port-title { font-size: 0.9rem; }
-      .port-desc { font-size: 0.75rem; }
-      .port-badge { font-size: 0.56rem; padding: 0.25rem 0.6rem; top: 10px; right: 10px; }
+      .port-info { padding: 1.25rem; }
+      .port-title { font-size: 1.1rem; }
+      .port-desc { font-size: 0.85rem; }
+      .port-badge { font-size: 0.6rem; padding: 0.3rem 0.75rem; top: 12px; right: 12px; }
     }
 
     /* Small mobile (≤380px) */
@@ -750,10 +749,17 @@
       return (wrap.offsetWidth - GAP * (v - 1)) / v;
     }
 
+    function tileHeight(w) {
+      // portrait on mobile (1 tile) for room to show both image and text
+      return getVisible() === 1 ? Math.round(w * 1.25) : w;
+    }
+
     function applyWidths() {
       const w = tileWidth();
+      const h = tileHeight(w);
       Array.from(track.querySelectorAll('.port-tile')).forEach(t => {
         t.style.width = w + 'px';
+        t.style.height = h + 'px';
       });
     }
 
