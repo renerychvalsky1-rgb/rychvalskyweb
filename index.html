@@ -275,6 +275,57 @@
       margin-top: 0.25rem; line-height: 1.4;
     }
 
+    /* ── CLIENTS MARQUEE ── */
+    #clients {
+      padding: 2.5rem 0;
+      overflow: hidden;
+    }
+    .clients-label {
+      text-align: center;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+    .marquee-wrap {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: marquee-scroll 12s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      padding: 0 3rem;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: rgba(255,255,255,0.18);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .marquee-item:hover { color: var(--teal); }
+    .marquee-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--teal-border);
+      display: inline-block;
+      margin: 0 1rem;
+      flex-shrink: 0;
+    }
+
     /* ── SERVICES ── */
     #services {
       padding: 6rem 2.5rem;
@@ -593,6 +644,23 @@
     </div>
   </section>
 
+  <!-- CLIENTS MARQUEE -->
+  <section id="clients">
+    <p class="clients-label">Konzultujem</p>
+    <div class="marquee-wrap">
+      <div class="marquee-track">
+        <!-- original set -->
+        <span class="marquee-item">SUVKO</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GrownApps</span><span class="marquee-dot"></span>
+        <span class="marquee-item">tiptravel.sk</span><span class="marquee-dot"></span>
+        <!-- duplicate for seamless loop -->
+        <span class="marquee-item">SUVKO</span><span class="marquee-dot"></span>
+        <span class="marquee-item">GrownApps</span><span class="marquee-dot"></span>
+        <span class="marquee-item">tiptravel.sk</span><span class="marquee-dot"></span>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section id="services">
     <div class="container">
@@ -682,23 +750,6 @@
           </div>
         </div>
 
-        <div class="timeline-item">
-          <div><span class="timeline-date">2021 – 2022</span></div>
-          <div>
-            <div class="timeline-company">Slovak Global Network</div>
-            <div class="timeline-role">Brand & Marketing Specialist</div>
-            <div class="timeline-desc">Rozvoj siete slovenských podnikateľov a spolupráca na marketingových a brandingových aktivitách.</div>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div><span class="timeline-date">2020 – 2022</span></div>
-          <div>
-            <div class="timeline-company">Freelance</div>
-            <div class="timeline-role">Social Media Specialist</div>
-            <div class="timeline-desc">Správa sociálnych sietí, content tvorba a organický rast pre rôznych klientov.</div>
-          </div>
-        </div>
 
       </div>
     </div>
