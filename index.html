@@ -404,6 +404,59 @@
     .timeline-role { font-size: 0.82rem; color: var(--teal); font-weight: 600; margin-bottom: 0.6rem; }
     .timeline-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: 6rem 2.5rem; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .tcard {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .tcard:hover { border-color: var(--teal-border); }
+    .tcard-quote {
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--teal);
+      font-family: Georgia, serif;
+      margin-bottom: -0.25rem;
+    }
+    .tcard-text {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .tcard-author {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+    .tcard-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .tcard-company {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
     /* ── CTA BANNER ── */
     #cta { padding: 4rem 2.5rem; }
     .cta-box {
@@ -475,6 +528,8 @@
       #portfolio { padding: 4rem 1.5rem 2rem; }
       #services { padding: 4rem 1.5rem; }
       #about { padding: 4rem 1.5rem; }
+      #testimonials { padding: 4rem 1.5rem; }
+      .testimonials-grid { grid-template-columns: 1fr; }
       #cta { padding: 3rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: 1fr; }
@@ -501,6 +556,7 @@
       #portfolio { padding: 3rem 1.1rem 1.5rem; }
       #services { padding: 3rem 1.1rem; }
       #about { padding: 3rem 1.1rem; }
+      #testimonials { padding: 3rem 1.1rem; }
       #cta { padding: 2rem 1.1rem; }
       footer { padding: 1.5rem 1.1rem; }
 
@@ -780,6 +836,45 @@
           </div>
         </div>
 
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <span class="section-label">Čo hovoria ostatní</span>
+      <h2 class="section-title">Referencie</h2>
+
+      <div class="testimonials-grid">
+
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <p class="tcard-text">René zohral hlavnú úlohu v dynamike celého projektu. Priniesol presne tú energiu a šmrnc, ktorý nám chýbal — bez neho by branding nevyzeral tak, ako vyzerá dnes.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">Maroš</span>
+            <span class="tcard-company">STERIO Kino</span>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <p class="tcard-text">René nám upratal marketingovú stratégiu — nie len v komunikácii, ale aj biznisovo, aby nám to celé dávalo zmysel. Konečne vieme, prečo robíme to, čo robíme.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">Adriana</span>
+            <span class="tcard-company">AdNa</span>
+          </div>
+        </div>
+
+        <div class="tcard">
+          <div class="tcard-quote">"</div>
+          <p class="tcard-text">René sa postupne stáva skutočne dobrým konzultantom. Ak chcete efektívne riešiť váš problém v brandingu, doniesol energiu aj konkrétne výsledky.</p>
+          <div class="tcard-author">
+            <span class="tcard-name">Dávid</span>
+            <span class="tcard-company">GrownApps</span>
+          </div>
+        </div>
 
       </div>
     </div>
