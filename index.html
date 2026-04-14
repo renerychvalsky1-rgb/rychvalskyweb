@@ -407,12 +407,13 @@
     /* ── TESTIMONIALS ── */
     #testimonials { padding: 6rem 2.5rem; }
     .tcarousel-wrap {
-      max-width: 720px;
+      max-width: var(--max);
       margin: 0 auto;
       overflow: hidden;
     }
     .tcarousel-track {
       display: flex;
+      gap: 1.25rem;
       will-change: transform;
     }
     .tcard {
@@ -424,7 +425,6 @@
       flex-direction: column;
       gap: 1.25rem;
       flex-shrink: 0;
-      width: 100%;
     }
     .tcard-quote {
       font-size: 2.5rem;
@@ -457,10 +457,13 @@
       color: var(--teal);
     }
     .tcarousel-dots {
-      display: flex;
+      display: none;
       justify-content: center;
       gap: 0.5rem;
       margin-top: 1.5rem;
+    }
+    @media (max-width: 960px) {
+      .tcarousel-dots { display: flex; }
     }
     .tcarousel-dot {
       width: 6px; height: 6px;
@@ -1016,15 +1019,31 @@
     const dotsWrap = document.getElementById('testimonialsDots');
     if (!wrap || !track) return;
 
+    const GAP = 20; // matches 1.25rem gap
     const cards = Array.from(track.querySelectorAll('.tcard'));
     const total = cards.length;
     let current = 0;
     let animating = false;
 
-    // Set all card widths to wrap width
+    function getVisible() {
+      return window.innerWidth > 960 ? 3 : 1;
+    }
+
+    function cardWidth() {
+      const v = getVisible();
+      return (wrap.offsetWidth - GAP * (v - 1)) / v;
+    }
+
     function applyWidths() {
-      const w = wrap.offsetWidth;
+      const w = cardWidth();
       cards.forEach(c => { c.style.width = w + 'px'; });
+      // reset position on desktop (no carousel needed)
+      if (getVisible() >= total) {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(0)';
+        current = 0;
+        updateDots();
+      }
     }
     applyWidths();
     window.addEventListener('resize', applyWidths, { passive: true });
@@ -1044,10 +1063,10 @@
     }
 
     function goTo(index) {
-      if (animating || index === current) return;
+      if (animating || index === current || getVisible() >= total) return;
       animating = true;
       current = index;
-      const w = wrap.offsetWidth;
+      const w = cardWidth() + GAP;
       track.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
       track.style.transform = `translateX(-${current * w}px)`;
       updateDots();
@@ -1055,6 +1074,7 @@
     }
 
     function advance() {
+      if (getVisible() >= total) return;
       goTo((current + 1) % total);
     }
 
