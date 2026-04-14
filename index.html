@@ -406,55 +406,73 @@
 
     /* ── TESTIMONIALS ── */
     #testimonials { padding: 6rem 2.5rem; }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      max-width: var(--max);
+    .tcarousel-wrap {
+      max-width: 720px;
       margin: 0 auto;
+      overflow: hidden;
+    }
+    .tcarousel-track {
+      display: flex;
+      will-change: transform;
     }
     .tcard {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.07);
       border-radius: var(--radius);
-      padding: 1.75rem;
+      padding: 2.25rem 2.5rem;
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
-      transition: border-color 0.2s;
+      flex-shrink: 0;
+      width: 100%;
     }
-    .tcard:hover { border-color: var(--teal-border); }
     .tcard-quote {
-      font-size: 2rem;
+      font-size: 2.5rem;
       line-height: 1;
       color: var(--teal);
       font-family: Georgia, serif;
-      margin-bottom: -0.25rem;
     }
     .tcard-text {
-      font-size: 0.92rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.65;
-      flex: 1;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
     }
     .tcard-author {
       display: flex;
       flex-direction: column;
       gap: 0.2rem;
-      padding-top: 1rem;
+      padding-top: 1.25rem;
       border-top: 1px solid rgba(255,255,255,0.07);
     }
     .tcard-name {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: #fff;
     }
     .tcard-company {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--teal);
+    }
+    .tcarousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .tcarousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: none; cursor: pointer;
+      padding: 0;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .tcarousel-dot.active {
+      background: var(--teal);
+      transform: scale(1.3);
     }
 
     /* ── CTA BANNER ── */
@@ -529,7 +547,6 @@
       #services { padding: 4rem 1.5rem; }
       #about { padding: 4rem 1.5rem; }
       #testimonials { padding: 4rem 1.5rem; }
-      .testimonials-grid { grid-template-columns: 1fr; }
       #cta { padding: 3rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
       .timeline { grid-template-columns: 1fr; }
@@ -557,6 +574,7 @@
       #services { padding: 3rem 1.1rem; }
       #about { padding: 3rem 1.1rem; }
       #testimonials { padding: 3rem 1.1rem; }
+      .tcard { padding: 1.75rem 1.5rem; }
       #cta { padding: 2rem 1.1rem; }
       footer { padding: 1.5rem 1.1rem; }
 
@@ -847,36 +865,39 @@
       <span class="section-label">Čo hovoria ostatní</span>
       <h2 class="section-title">Referencie</h2>
 
-      <div class="testimonials-grid">
+      <div class="tcarousel-wrap">
+        <div class="tcarousel-track" id="testimonialsTrack">
 
-        <div class="tcard">
-          <div class="tcard-quote">"</div>
-          <p class="tcard-text">René zohral hlavnú úlohu v dynamike celého projektu. Priniesol presne tú energiu a šmrnc, ktorý nám chýbal — bez neho by branding nevyzeral tak, ako vyzerá dnes.</p>
-          <div class="tcard-author">
-            <span class="tcard-name">Maroš</span>
-            <span class="tcard-company">STERIO Kino</span>
+          <div class="tcard">
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Zohral hlavnú úlohu v dynamike celého projektu. Priniesol presne tú energiu a šmrnc, ktorý nám chýbal — bez neho by branding nevyzeral tak, ako vyzerá dnes.</p>
+            <div class="tcard-author">
+              <span class="tcard-name">Maroš</span>
+              <span class="tcard-company">STERIO Kino</span>
+            </div>
           </div>
-        </div>
 
-        <div class="tcard">
-          <div class="tcard-quote">"</div>
-          <p class="tcard-text">René nám upratal marketingovú stratégiu — nie len v komunikácii, ale aj biznisovo, aby nám to celé dávalo zmysel. Konečne vieme, prečo robíme to, čo robíme.</p>
-          <div class="tcard-author">
-            <span class="tcard-name">Adriana</span>
-            <span class="tcard-company">AdNa</span>
+          <div class="tcard">
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Upratal nám marketingovú stratégiu — nie len v komunikácii, ale aj biznisovo, aby nám to celé dávalo zmysel. Konečne vieme, prečo robíme to, čo robíme.</p>
+            <div class="tcard-author">
+              <span class="tcard-name">Adriana</span>
+              <span class="tcard-company">AdNa</span>
+            </div>
           </div>
-        </div>
 
-        <div class="tcard">
-          <div class="tcard-quote">"</div>
-          <p class="tcard-text">René sa postupne stáva skutočne dobrým konzultantom. Ak chcete efektívne riešiť váš problém v brandingu, doniesol energiu aj konkrétne výsledky.</p>
-          <div class="tcard-author">
-            <span class="tcard-name">Dávid</span>
-            <span class="tcard-company">GrownApps</span>
+          <div class="tcard">
+            <div class="tcard-quote">"</div>
+            <p class="tcard-text">Postupne sa stáva skutočne dobrým konzultantom. Keď chcete efektívne riešiť problém v brandingu, doniesol energiu aj konkrétne výsledky — odporúčam.</p>
+            <div class="tcard-author">
+              <span class="tcard-name">Dávid</span>
+              <span class="tcard-company">GrownApps</span>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
+      <div class="tcarousel-dots" id="testimonialsDots"></div>
     </div>
   </section>
 
@@ -986,6 +1007,58 @@
     }
 
     setInterval(advance, 2000);
+  })();
+
+  // Testimonials carousel
+  (function () {
+    const wrap = document.querySelector('.tcarousel-wrap');
+    const track = document.getElementById('testimonialsTrack');
+    const dotsWrap = document.getElementById('testimonialsDots');
+    if (!wrap || !track) return;
+
+    const cards = Array.from(track.querySelectorAll('.tcard'));
+    const total = cards.length;
+    let current = 0;
+    let animating = false;
+
+    // Set all card widths to wrap width
+    function applyWidths() {
+      const w = wrap.offsetWidth;
+      cards.forEach(c => { c.style.width = w + 'px'; });
+    }
+    applyWidths();
+    window.addEventListener('resize', applyWidths, { passive: true });
+
+    // Build dots
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'tcarousel-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    function updateDots() {
+      dotsWrap.querySelectorAll('.tcarousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === current);
+      });
+    }
+
+    function goTo(index) {
+      if (animating || index === current) return;
+      animating = true;
+      current = index;
+      const w = wrap.offsetWidth;
+      track.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+      track.style.transform = `translateX(-${current * w}px)`;
+      updateDots();
+      setTimeout(() => { animating = false; }, 560);
+    }
+
+    function advance() {
+      goTo((current + 1) % total);
+    }
+
+    setInterval(advance, 4000);
   })();
 </script>
 
