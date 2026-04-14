@@ -1019,42 +1019,42 @@
     const dotsWrap = document.getElementById('testimonialsDots');
     if (!wrap || !track) return;
 
-    const GAP = 20; // matches 1.25rem gap
+    const GAP = 20; // 1.25rem
     const cards = Array.from(track.querySelectorAll('.tcard'));
     const total = cards.length;
     let current = 0;
     let animating = false;
 
-    function getVisible() {
-      return window.innerWidth > 960 ? 3 : 1;
-    }
-
-    function cardWidth() {
-      const v = getVisible();
-      return (wrap.offsetWidth - GAP * (v - 1)) / v;
-    }
+    function getVisible() { return window.innerWidth > 960 ? 3 : 1; }
+    function maxPos()     { return Math.max(0, total - getVisible()); }
+    function cardWidth()  { const v = getVisible(); return (wrap.offsetWidth - GAP * (v - 1)) / v; }
 
     function applyWidths() {
       const w = cardWidth();
       cards.forEach(c => { c.style.width = w + 'px'; });
-      // reset position on desktop (no carousel needed)
-      if (getVisible() >= total) {
+      // clamp position if visible count changed
+      if (current > maxPos()) {
         track.style.transition = 'none';
-        track.style.transform = 'translateX(0)';
         current = 0;
-        updateDots();
+        track.style.transform = 'translateX(0)';
       }
+      buildDots();
+      updateDots();
     }
     applyWidths();
     window.addEventListener('resize', applyWidths, { passive: true });
 
-    // Build dots
-    cards.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'tcarousel-dot' + (i === 0 ? ' active' : '');
-      dot.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(dot);
-    });
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const count = maxPos() + 1;
+      if (count <= 1) return;
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'tcarousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(dot);
+      }
+    }
 
     function updateDots() {
       dotsWrap.querySelectorAll('.tcarousel-dot').forEach((d, i) => {
@@ -1063,19 +1063,31 @@
     }
 
     function goTo(index) {
-      if (animating || index === current || getVisible() >= total) return;
+      const max = maxPos();
+      if (animating || max === 0) return;
       animating = true;
-      current = index;
-      const w = cardWidth() + GAP;
+      current = Math.min(index, max);
+      const step = cardWidth() + GAP;
       track.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
-      track.style.transform = `translateX(-${current * w}px)`;
+      track.style.transform = `translateX(-${current * step}px)`;
       updateDots();
       setTimeout(() => { animating = false; }, 560);
     }
 
     function advance() {
-      if (getVisible() >= total) return;
-      goTo((current + 1) % total);
+      const max = maxPos();
+      if (max === 0) return;
+      if (current >= max) {
+        // snap back to start without animation
+        animating = true;
+        track.style.transition = 'none';
+        current = 0;
+        track.style.transform = 'translateX(0)';
+        updateDots();
+        setTimeout(() => { animating = false; }, 50);
+      } else {
+        goTo(current + 1);
+      }
     }
 
     setInterval(advance, 4000);
