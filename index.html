@@ -61,10 +61,9 @@
       max-width: var(--max); margin: 0 auto;
       padding: 0 2.5rem;
       height: 100px;
-      display: grid;
-      grid-template-columns: auto 1fr auto;
+      display: flex;
       align-items: center;
-      gap: 2rem;
+      justify-content: space-between;
     }
     .nav-logo {
       font-family: 'Roboto', system-ui, sans-serif;
@@ -90,6 +89,14 @@
       transition: color 0.2s;
     }
     .nav-link-plain:hover { color: #fff; }
+    .nav-li-icon {
+      display: none;
+      color: var(--muted); text-decoration: none;
+      align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      transition: color 0.2s;
+    }
+    .nav-li-icon:hover { color: #fff; }
     .nav-btn-teal {
       color: var(--teal); text-decoration: none;
       font-size: 0.82rem; font-weight: 700; letter-spacing: 0.04em;
@@ -387,7 +394,6 @@
       .nav-inner {
         height: 70px;
         padding: 0 1.5rem;
-        grid-template-columns: 1fr auto;
       }
       #hero { padding: 100px 1.5rem 3rem; }
       .hero-inner {
@@ -417,6 +423,7 @@
       }
       .nav-logo { font-size: 0.85rem; letter-spacing: 0.12em; }
       .nav-link-plain { display: none; }
+      .nav-li-icon { display: flex; }
       .nav-btn-teal { font-size: 0.73rem; padding: 0.4rem 0.9rem; }
 
       #hero { padding: 76px 1.1rem 2.5rem; }
@@ -476,9 +483,13 @@
   <nav id="nav">
     <div class="nav-inner">
       <a class="nav-logo" href="#">RYCHVALSKY.SK</a>
-      <div></div>
       <div class="nav-actions">
         <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener" class="nav-link-plain">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/renerychvalsky/" target="_blank" rel="noopener" class="nav-li-icon" aria-label="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
         <a href="mailto:renerychvalsky1@gmail.com" class="nav-btn-teal">Napísať email</a>
       </div>
     </div>
