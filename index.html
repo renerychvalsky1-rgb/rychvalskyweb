@@ -281,13 +281,17 @@
       overflow: hidden;
     }
     .clients-label {
-      text-align: center;
+      text-align: left;
       font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
       margin-bottom: 1.25rem;
+      padding: 0 2.5rem;
+      max-width: var(--max);
+      margin-left: auto;
+      margin-right: auto;
     }
     .marquee-wrap {
       overflow: hidden;
@@ -298,7 +302,7 @@
       display: flex;
       gap: 0;
       width: max-content;
-      animation: marquee-scroll 12s linear infinite;
+      animation: marquee-scroll 28s linear infinite;
     }
     .marquee-track:hover { animation-play-state: paused; }
     @keyframes marquee-scroll {
@@ -308,21 +312,20 @@
     .marquee-item {
       display: flex;
       align-items: center;
-      padding: 0 3rem;
+      padding: 0 2.5rem;
       font-size: 1.35rem;
       font-weight: 800;
       letter-spacing: -0.01em;
-      color: rgba(255,255,255,0.18);
+      color: rgba(0,200,184,0.35);
       white-space: nowrap;
       transition: color 0.2s;
     }
-    .marquee-item:hover { color: var(--teal); }
+    .marquee-item:hover { color: var(--teal-bright); }
     .marquee-dot {
-      width: 5px; height: 5px;
+      width: 4px; height: 4px;
       border-radius: 50%;
-      background: var(--teal-border);
+      background: rgba(0,200,184,0.25);
       display: inline-block;
-      margin: 0 1rem;
       flex-shrink: 0;
     }
 
@@ -646,17 +649,24 @@
 
   <!-- CLIENTS MARQUEE -->
   <section id="clients">
-    <p class="clients-label">Konzultujem</p>
+    <p class="clients-label">Konzultácie</p>
     <div class="marquee-wrap">
       <div class="marquee-track">
-        <!-- original set -->
         <span class="marquee-item">SUVKO</span><span class="marquee-dot"></span>
         <span class="marquee-item">GrownApps</span><span class="marquee-dot"></span>
         <span class="marquee-item">tiptravel.sk</span><span class="marquee-dot"></span>
+        <span class="marquee-item">STRAUBERI</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Túlavé kino</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Xelvo</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AdNa</span><span class="marquee-dot"></span>
         <!-- duplicate for seamless loop -->
         <span class="marquee-item">SUVKO</span><span class="marquee-dot"></span>
         <span class="marquee-item">GrownApps</span><span class="marquee-dot"></span>
         <span class="marquee-item">tiptravel.sk</span><span class="marquee-dot"></span>
+        <span class="marquee-item">STRAUBERI</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Túlavé kino</span><span class="marquee-dot"></span>
+        <span class="marquee-item">Xelvo</span><span class="marquee-dot"></span>
+        <span class="marquee-item">AdNa</span><span class="marquee-dot"></span>
       </div>
     </div>
   </section>
